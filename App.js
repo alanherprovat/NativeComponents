@@ -1,14 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import NextButton from './components/NextButton';
+import CommonButton from './components/CommonButton';
 import OnboardingInput from './components/OnboardingInput';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
+      <View style={{marginTop:20}}>
+      </View>
       <StatusBar style="auto" />
-      <NextButton/>
+      
+          <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}> 
+           Next 
+          </CommonButton>
+
+          <View style={{marginTop:20}}>
+          </View>
+
+          <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}
+          > 
+           Previous 
+          </CommonButton>
+
+          <View style={{marginTop:20}}>
+          </View>
+
+          <CommonButton LeftIcon={true}  LeftIconStyles={styles.LeftIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
+           Previous 
+          </CommonButton>
+
+          <View style={{marginTop:20}}>
+          </View>
+          
+          <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
+           Next 
+          </CommonButton>
+
       <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
       <OnboardingInput style={{borderRadius:16}} />
       <OnboardingInput readOnly style={{borderRadius:16}}/>
@@ -22,8 +50,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    gap:10,
-    width:"90%",
-    marginHorizontal:"auto"
   },
+  ButtonStyles:
+  { backgroundColor: 'rgba(204, 10, 19, 0.95)',
+    borderColor: '#CC0A13',
+  },
+  LeftIconStyles:
+  {
+    color: 'rgba(204, 10, 19, 1)'
+  },
+  RightIconStyles:{
+    color: 'rgba(204, 10, 19, 1)'
+  },
+   buttonTextStyles:{
+    color:'rgba(204, 10, 19, 1)'
+  }
+
 });

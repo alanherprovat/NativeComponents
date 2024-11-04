@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CommonButton from './components/CommonButton';
 import OnboardingInput from './components/OnboardingInput';
 import commonStyles from './assets/Styles/CommonStyles';
+import DocumentPicker from './components/DocumentPicker';
 
 export default function App() {
   return (
@@ -43,6 +44,8 @@ export default function App() {
       <OnboardingInput style={{borderRadius:16}} />
       <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
       <OnboardingInput readOnly style={{borderRadius:16}}/>
+      <Text style={commonStyles.subHeaderText}>Document Picker</Text>
+      <DocumentPicker label="Attach your files here"/>
     </View> 
   );
 }

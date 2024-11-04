@@ -79,7 +79,7 @@ const commonStyles = StyleSheet.create({
     // paddingVertical: 5,
     // backgroundColor: Colors.primary+'10',
     // fontFamily: 'k2d-regular',
-    fontFamily: "k2d-bold",
+    // fontFamily: "k2d-bold",
     // textAlign: 'center',
   },
   onBoardingTextField: {
@@ -111,7 +111,7 @@ const commonStyles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     borderColor: Colors.primary,
-    fontFamily: "k2d-regular",
+    // fontFamily: "k2d-regular",
   },
   onboardingInformationField: {
     backgroundColor: "#F6F8FA",
@@ -121,7 +121,7 @@ const commonStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#969696",
     // color: "#D9D9D9",
-    fontFamily: "k2d-bold",
+    // fontFamily: "k2d-bold",
     // marginBottom: 10
   },
   checkboxContainer: {
@@ -195,7 +195,7 @@ export const customPickerStyles = StyleSheet.create({
     borderBottomColor: "#969696",
     color: '#000000',
     paddingRight: 30, 
-    fontFamily: "k2d-regular",
+    // fontFamily: "k2d-regular",
   },
   inputAndroid: {
     fontSize: 16,

@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import CommonButton from './components/CommonButton';
 import OnboardingInput from './components/OnboardingInput';
+import commonStyles from './assets/Styles/CommonStyles';
 
 export default function App() {
   return (
@@ -36,9 +37,11 @@ export default function App() {
           <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
            Next 
           </CommonButton>
-
+      <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
       <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
+      <Text style={commonStyles.subHeaderText}>Information Input</Text>
       <OnboardingInput style={{borderRadius:16}} />
+      <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
       <OnboardingInput readOnly style={{borderRadius:16}}/>
     </View> 
   );
@@ -49,7 +52,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',width:"90%",
+    marginHorizontal:"auto",
+    gap:10
   },
   ButtonStyles:
   { backgroundColor: 'rgba(204, 10, 19, 0.95)',

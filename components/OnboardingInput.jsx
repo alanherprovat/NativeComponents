@@ -3,6 +3,13 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Colors } from "../assets/Styles/CommonStyles";
+const baseContainerStyle = {
+  flexDirection: "row",
+  borderWidth: 1,
+  borderColor: "#98A1B3",
+  width: "100%",
+  overflow: "hidden",
+};
 export default function OnboardingInput(props) {
     const {
         leftIcon = null,
@@ -43,7 +50,7 @@ export default function OnboardingInput(props) {
         activeUnderlineColor="transparent"
         cursorColor="#000"
         mode="flat" 
-        readOnly
+        // readOnly
       />
       {rightIcon && (
             <TouchableOpacity onPress={rightIconPress}>
@@ -61,24 +68,13 @@ export default function OnboardingInput(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
-    borderWidth:1,
-    borderColor:"#98A1B3",
-    width:"100%",
-    // borderRadius:8
+    ...baseContainerStyle,
   },
   readOnlyContainer: {
-    flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
-    borderWidth:1,
-    borderColor:"#98A1B3",
-    width:"100%",
+    ...baseContainerStyle,
     backgroundColor:"#F3E0E0"
     // borderRadius:8
-  },
+    },
   textField: {
     // flex: 1,
     fontSize: 16,

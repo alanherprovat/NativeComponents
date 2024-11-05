@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,  // Lighter color when disabled
   },
   radioLabel: {
-    fontFamily:'K2D-Regular',
+    // fontFamily:'K2D-Regular',
     fontSize: 20,
     fontWeight:'400',
     marginLeft: 8,

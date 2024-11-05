@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { StyleSheet, Text, View,SafeAreaView } from 'react-native';
 import CommonButton from './components/CommonButton';
+import OnboardingInput from './components/OnboardingInput';
+import commonStyles from './assets/Styles/CommonStyles';
+import DocumentPicker from './components/DocumentPicker';
 import PrevNextButton from './components/PrevNextButton';
 import HeaderOnboarding from './components/HeaderOnboarding';
 
@@ -55,13 +58,20 @@ export default function App() {
             <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
             Next 
             </CommonButton>
-
+            <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
+            <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
+            <Text style={commonStyles.subHeaderText}>Information Input</Text>
+            <OnboardingInput style={{borderRadius:16}} />
+            <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
+            <OnboardingInput readOnly style={{borderRadius:16}}/>
+            <Text style={commonStyles.subHeaderText}>Document Picker</Text>
+            <DocumentPicker label="Attach your files here"/>
             <View style={{marginTop:20}}>
             </View>
             <PrevNextButton>
               Hello
             </PrevNextButton>
-        </View>
+        </View> 
 
   );
 }
@@ -71,7 +81,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3FE',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',width:"90%",
+    marginHorizontal:"auto",
+    gap:10
   },
   ButtonStyles:
   { backgroundColor: 'rgba(204, 10, 19, 0.95)',

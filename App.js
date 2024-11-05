@@ -66,25 +66,6 @@ export default function App() {
         </View> 
     </ScrollView>
 
-<<<<<<< Updated upstream
-=======
-          <View style={{marginTop:20}}>
-          </View>
-          
-          <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
-           Next 
-          </CommonButton>
-      <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
-      <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
-      <Text style={commonStyles.subHeaderText}>Information Input</Text>
-      <OnboardingInput style={{borderRadius:16}} />
-      <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
-      <OnboardingInput readOnly style={{borderRadius:16}}/>
-      <Text style={commonStyles.subHeaderText}>Document Picker</Text>
-      <DocumentPicker label="Attach your files here"/>
-      <DocumentPicker label="Attach your files here" nidPicker/>
-    </View> 
->>>>>>> Stashed changes
   );
 }
 

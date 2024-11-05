@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     borderColor: "#CC0A13",
   },
   TextStyle: {
-    fontFamily: "K2D-Regular",
+    // fontFamily: "K2D-Regular",
     fontWeight: "400",
     fontSize: 20,
     lineHeight: 26,

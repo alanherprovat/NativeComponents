@@ -62,7 +62,7 @@ const CustomRadioButton = ({
       minWidth: 100, // Ensure minimum width for each option
     },
     radioLabel: {
-      fontFamily:"K2D-Regular",
+      // fontFamily:"K2D-Regular",
       fontWeight:400,
       fontSize: 20,
       color:'#CC0A13'

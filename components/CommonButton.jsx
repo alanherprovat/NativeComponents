@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontSize: 20,
     fontWeight: '400',
-    fontFamily: 'K2D-Regular',
+    // fontFamily: 'K2D-Regular',
   },
   Righticon: {
     color: 'rgba(255, 255, 255, 1)',

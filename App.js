@@ -7,6 +7,8 @@ import commonStyles from './assets/Styles/CommonStyles';
 import DocumentPicker from './components/DocumentPicker';
 import PrevNextButton from './components/PrevNextButton';
 import HeaderOnboarding from './components/HeaderOnboarding';
+import { ProgressBar } from 'react-native-paper';
+import Progressbar from './components/Progressbar';
 
 export default function App() {
 
@@ -17,7 +19,6 @@ export default function App() {
         <View style={{marginTop:40}}>
         </View>
 
-        <Text>Open up App.js to start working on your app!</Text>
         <View style={{marginTop:20}}>
         </View>
         <HeaderOnboarding/>
@@ -60,6 +61,10 @@ export default function App() {
             <OnboardingInput readOnly style={{borderRadius:16}}/>
             <Text style={commonStyles.subHeaderText}>Document Picker</Text>
             <DocumentPicker label="Attach your files here"/>
+            <DocumentPicker label="Attach your files here" nidPicker/>
+            <Progressbar currentStep={1} totalStep={4} title="Personal Info" nextTitle="Bank Info" />
+            <Progressbar currentStep={2} totalStep={4} title="Bank Info" nextTitle="Nominee Info" />
+            <Progressbar currentStep={3} totalStep={4} title="Nominee Info" nextTitle="Review Info" />
             <View style={{marginTop:20}}>
             </View>
             

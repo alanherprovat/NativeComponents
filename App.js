@@ -15,6 +15,7 @@ import CustomRadio from "./components/RadioButtonTest";
 import CustomCard from "./components/CustomCard";
 import { ProgressBar } from 'react-native-paper';
 import Progressbar from './components/Progressbar';
+import OtpInput from './components/OtpInput';
 
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
@@ -75,6 +76,7 @@ export default function App() {
           Next
         </CommonButton>
 
+<<<<<<< Updated upstream
         <PrevNextButton />
 
         <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
@@ -90,6 +92,27 @@ export default function App() {
             <Progressbar currentStep={2} totalStep={4} title="Bank Info" nextTitle="Nominee Info" />
             <Progressbar currentStep={3} totalStep={4} title="Nominee Info" nextTitle="Review Info" />
         <View style={{ marginTop: 20 }}></View>
+=======
+            <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
+            <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
+            <OnboardingInput leftIcon = "person" style={{borderRadius:8}}/>
+            <Text style={commonStyles.subHeaderText}>Information Input</Text>
+            <OnboardingInput style={{borderRadius:16}} />
+            <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
+            <OnboardingInput readOnly style={{borderRadius:16}}/>
+            <Text style={commonStyles.subHeaderText}>Document Picker</Text>
+            <DocumentPicker label="Attach your files here"/>
+            <DocumentPicker label="Attach your files here" nidPicker/>
+            <Progressbar currentStep={1} totalStep={3} title="Personal Info" nextTitle="Bank Info" />
+            <Progressbar currentStep={2} totalStep={3} title="Bank Info" nextTitle="Nominee Info" />
+            <Progressbar currentStep={3} totalStep={3} title="Nominee(s) Info" nextTitle="Review Info" />
+            <View style={{marginTop:20}}>
+              <OtpInput/>
+            </View>
+            
+        </View> 
+    </ScrollView>
+>>>>>>> Stashed changes
 
         <OnboardingMessageCard>
           <CustomRadio

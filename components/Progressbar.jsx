@@ -5,7 +5,6 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 export default function Progressbar(props) {
   const {currentStep,totalStep,title,nextTitle} = props;
   const stepsComplete = Number(currentStep)/Number(totalStep);
-  console.log(stepsComplete)
   return (
     <View style={styles.progressbarContainer}>
       <AnimatedCircularProgress
@@ -23,7 +22,7 @@ export default function Progressbar(props) {
         )}
       </AnimatedCircularProgress>
       <View style={styles.stepsDescription}>
-       <Text style={{...styles.descriptionText,fontSize:18,fontWeight:"bold"}}>{title}</Text>
+       <Text style={{...styles.descriptionText,fontSize:20,fontWeight:"bold"}}>{title}</Text>
        <Text style={{...styles.descriptionText,fontSize:14}}> Next : {nextTitle}</Text>
       </View>
     </View>
@@ -45,9 +44,9 @@ const styles = StyleSheet.create({
   },
   progressTextContainer: {
     position: "absolute",
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     backgroundColor: "#CC0A13",
     justifyContent: "center",
     alignItems: "center",

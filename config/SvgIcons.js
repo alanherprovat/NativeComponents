@@ -50,3 +50,25 @@ export const ViewIcon = (props)=>{
       </Svg>
     )
 }
+export const LogoIcon = ({props})=>{
+  return(
+    <Svg
+    width={84}
+    height={84}
+    viewBox="0 0 84 84"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <Path d="M62.6316 84H0V21.3684H62.6316V84Z" fill="#ED1C24" />
+    <Path
+      d="M72.9474 10.3158H31.6842V15.7935H67.5655V52.3158H72.9474V10.3158Z"
+      fill="black"
+    />
+    <Path
+      d="M84 0H53.0526V5.39768H78.6084V30.9474H83.9966V0.00110554"
+      fill="black"
+    />
+  </Svg>
+  )
+}

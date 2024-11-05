@@ -13,12 +13,17 @@ export default function DocumentPicker(props) {
     const {label,nidPicker} = props
   return (
     <View style={styles.documentContainer}>
-     {nidPicker?<></>:<Button onPress={()=>console.log("Camera is Clicked!")} style={styles.photoContainer}>
+      <View
+      style={styles.fileUploadContainer}
+      >
+      {nidPicker?<></>:<Button onPress={()=>console.log("Camera is Clicked!")} style={styles.photoContainer}>
        <CameraIcon/>
      </Button>}
      <Button onPress={()=>console.log("Upload is Clicked!")} style={nidPicker?styles.photoContainer:styles.uploadIconContainer}>
        <UploadIcon/>
      </Button>
+      </View>
+
      <View >
         <Text style={styles.documentLabel}>{label}</Text>
      </View>
@@ -40,6 +45,10 @@ const styles = StyleSheet.create({
         justifyContent:"space-between"
         // paddingVertical:4,
         // paddingHorizontal:5
+    },
+    fileUploadContainer:{
+      flexDirection:"row",
+      gap:30
     },
     photoContainer:{
       ...buttonContainer,

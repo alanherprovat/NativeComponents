@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useMemo, useRef } from 'react';
-import { StyleSheet, Text, View,SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View,ScrollView } from 'react-native';
 import CommonButton from './components/CommonButton';
 import OnboardingInput from './components/OnboardingInput';
 import commonStyles from './assets/Styles/CommonStyles';
@@ -8,19 +8,11 @@ import DocumentPicker from './components/DocumentPicker';
 import PrevNextButton from './components/PrevNextButton';
 import HeaderOnboarding from './components/HeaderOnboarding';
 
-
 export default function App() {
-
-  const bottomSheetRef = useRef(null);
-
-  // callbacks
-  const handleSheetChanges = useCallback((index) => {
-    console.log('handleSheetChanges', index);
-  }, []);
 
 
   return (
-   
+    <ScrollView>
         <View style={styles.container}>
         <View style={{marginTop:40}}>
         </View>
@@ -29,7 +21,7 @@ export default function App() {
         <View style={{marginTop:20}}>
         </View>
         <HeaderOnboarding/>
-      
+
             <View style={{marginTop:20}}>
             </View>
 
@@ -40,8 +32,7 @@ export default function App() {
             <View style={{marginTop:20}}>
             </View>
 
-            <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}
-            > 
+            <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}> 
             Previous 
             </CommonButton>
 
@@ -58,6 +49,9 @@ export default function App() {
             <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
             Next 
             </CommonButton>
+
+            <PrevNextButton/>
+
             <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
             <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
             <Text style={commonStyles.subHeaderText}>Information Input</Text>
@@ -68,10 +62,9 @@ export default function App() {
             <DocumentPicker label="Attach your files here"/>
             <View style={{marginTop:20}}>
             </View>
-            <PrevNextButton>
-              Hello
-            </PrevNextButton>
+            
         </View> 
+    </ScrollView>
 
   );
 }
@@ -81,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3FE',
     alignItems: 'center',
-    justifyContent: 'center',width:"90%",
+    justifyContent: 'center',width:"100%",
     marginHorizontal:"auto",
     gap:10
   },

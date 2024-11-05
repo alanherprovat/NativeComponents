@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useCallback, useMemo, useRef,useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import CommonButton from "./components/CommonButton";
 import OnboardingInput from "./components/OnboardingInput";
@@ -13,9 +13,9 @@ import CustomCheckBox from "./components/CustomCheckBox";
 import CallIcon from "./assets/icons/icons";
 import CustomRadio from "./components/RadioButtonTest";
 import CustomCard from "./components/CustomCard";
-import { ProgressBar } from 'react-native-paper';
-import Progressbar from './components/Progressbar';
-import OtpInput from './components/OtpInput';
+import { ProgressBar } from "react-native-paper";
+import Progressbar from "./components/Progressbar";
+import OtpInput from "./components/OtpInput";
 
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
@@ -27,7 +27,7 @@ export default function App() {
   const optionsPass = [
     { label: "At least 8 Characters", value: "1" },
     { label: "1 Upper case & 1 Lower case", value: "2" },
-    { label: "1 Special Character", value: "3" }
+    { label: "1 Special Character", value: "3" },
   ];
 
   // Handle selection change
@@ -36,7 +36,9 @@ export default function App() {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{
+      backgroundColor: "#F6F3FE",
+    }}>
       <View style={styles.container}>
         <View style={{ marginTop: 40 }}></View>
 
@@ -76,7 +78,6 @@ export default function App() {
           Next
         </CommonButton>
 
-<<<<<<< Updated upstream
         <PrevNextButton />
 
         <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
@@ -87,92 +88,84 @@ export default function App() {
         <OnboardingInput readOnly style={{ borderRadius: 16 }} />
         <Text style={commonStyles.subHeaderText}>Document Picker</Text>
         <DocumentPicker label="Attach your files here" />
-            <DocumentPicker label="Attach your files here" nidPicker/>
-            <Progressbar currentStep={1} totalStep={4} title="Personal Info" nextTitle="Bank Info" />
-            <Progressbar currentStep={2} totalStep={4} title="Bank Info" nextTitle="Nominee Info" />
-            <Progressbar currentStep={3} totalStep={4} title="Nominee Info" nextTitle="Review Info" />
-        <View style={{ marginTop: 20 }}></View>
-=======
-            <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
-            <OnboardingInput leftIcon = "mail" style={{borderRadius:8}}/>
-            <OnboardingInput leftIcon = "person" style={{borderRadius:8}}/>
-            <Text style={commonStyles.subHeaderText}>Information Input</Text>
-            <OnboardingInput style={{borderRadius:16}} />
-            <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
-            <OnboardingInput readOnly style={{borderRadius:16}}/>
-            <Text style={commonStyles.subHeaderText}>Document Picker</Text>
-            <DocumentPicker label="Attach your files here"/>
-            <DocumentPicker label="Attach your files here" nidPicker/>
-            <Progressbar currentStep={1} totalStep={3} title="Personal Info" nextTitle="Bank Info" />
-            <Progressbar currentStep={2} totalStep={3} title="Bank Info" nextTitle="Nominee Info" />
-            <Progressbar currentStep={3} totalStep={3} title="Nominee(s) Info" nextTitle="Review Info" />
-            <View style={{marginTop:20}}>
-              <OtpInput/>
-            </View>
-            
-        </View> 
-    </ScrollView>
->>>>>>> Stashed changes
 
-        <OnboardingMessageCard>
-          <CustomRadio
-            options={optionsFace}
-            direction="vertical"
-          />
-        </OnboardingMessageCard>
-
-        <OnboardingMessageCard>
-          <CustomRadio
-            options={optionsPass}
-            direction="vertical"
-            style={{borderColor: '#252526',marginRight: 10}} 
-            selectedButtStyle= {{backgroundColor: '#0F7C4B'}}
-            labelStyle = {{fontSize: 16, color: '#252526'}}
-          />
-        </OnboardingMessageCard>
-
-
-        <View style={{ marginTop: 20 }}></View>
-
-        <OnboardingMessageCard
-          style={{
-            backgroundColor: "#FFFFFF", // Custom background color
-            borderWidth: 1,
-            borderColor: "#B9B9B9",
-          }}
-        >
-          <Text style={styles.TextStyle}>
-            You have a trading account with mobile no. (0185*****10).
-          </Text>
-          <View style={{ marginTop: 10 }}></View>
-          <Text style={styles.TextStyle}>
-            Please use this mobile no. or contact your RM.
-          </Text>
-
-          <View style={{ marginTop: 10 }}></View>
-
-          <CommonButton
-            buttonTextStyles={styles.buttonTextStyles}
-            ButtonStyles={{ width: "100%" }}
-          >
-            {" "}
-            Send OTP
-          </CommonButton>
-          <View style={{ marginTop: 20 }}></View>
-          <CommonButton
-            icon={<CallIcon />}
-            buttonTextStyles={styles.buttonTextStyles}
-            ButtonStyles={{ width: "100%" }}
-          >
-            {" "}
-            Call RM
-          </CommonButton>
-        </OnboardingMessageCard>
-
-        <View style={{ marginTop: 20 }}></View>
-        <CustomCard/>
+        <DocumentPicker label="Attach your files here" nidPicker />
+        <Progressbar
+          currentStep={1}
+          totalStep={3}
+          title="Personal Info"
+          nextTitle="Bank Info"
+        />
+        <Progressbar
+          currentStep={2}
+          totalStep={3}
+          title="Bank Info"
+          nextTitle="Nominee Info"
+        />
+        <Progressbar
+          currentStep={3}
+          totalStep={3}
+          title="Nominee(s) Info"
+          nextTitle="Review Info"
+        />
+        <View style={{ marginTop: 20 }}>
+          <OtpInput />
+        </View>
       </View>
-     
+
+      <OnboardingMessageCard>
+        <CustomRadio options={optionsFace} direction="vertical" />
+      </OnboardingMessageCard>
+
+      <OnboardingMessageCard>
+        <CustomRadio
+          options={optionsPass}
+          direction="vertical"
+          style={{ borderColor: "#252526", marginRight: 10 }}
+          selectedButtStyle={{ backgroundColor: "#0F7C4B" }}
+          labelStyle={{ fontSize: 16, color: "#252526" }}
+        />
+      </OnboardingMessageCard>
+
+      <View style={{ marginTop: 20 }}></View>
+
+      <OnboardingMessageCard
+        style={{
+          backgroundColor: "#FFFFFF", // Custom background color
+          borderWidth: 1,
+          borderColor: "#B9B9B9",
+        }}
+      >
+        <Text style={styles.TextStyle}>
+          You have a trading account with mobile no. (0185*****10).
+        </Text>
+        <View style={{ marginTop: 10 }}></View>
+        <Text style={styles.TextStyle}>
+          Please use this mobile no. or contact your RM.
+        </Text>
+
+        <View style={{ marginTop: 10 }}></View>
+
+        <CommonButton
+          buttonTextStyles={styles.buttonTextStyles}
+          ButtonStyles={{ width: "100%" }}
+        >
+          {" "}
+          Send OTP
+        </CommonButton>
+        <View style={{ marginTop: 20 }}></View>
+        <CommonButton
+          icon={<CallIcon />}
+          buttonTextStyles={styles.buttonTextStyles}
+          ButtonStyles={{ width: "100%" }}
+        >
+          {" "}
+          Call RM
+        </CommonButton>
+      </OnboardingMessageCard>
+
+      <View style={{ marginTop: 20 }}></View>
+      <CustomCard />
     </ScrollView>
   );
 }
@@ -180,7 +173,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F6F3FE",
+    
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -193,7 +186,7 @@ const styles = StyleSheet.create({
   },
   TextStyle: {
     fontFamily: "K2D-Regular",
-    fontWeight: '400',
+    fontWeight: "400",
     fontSize: 20,
     lineHeight: 26,
   },

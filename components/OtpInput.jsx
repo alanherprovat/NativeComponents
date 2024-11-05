@@ -68,7 +68,7 @@ export default function OtpInput() {
             onChangeText={(text) => handleChange(text, index)}
             keyboardType="numeric"
             maxLength={1}
-            autoFocus={index === 0}
+            // autoFocus={index === 0}
             // onSubmitEditing={handleSubmit}
           />
         ))}

@@ -1,23 +1,30 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { CameraIcon, UploadIcon, ViewIcon } from '../config/SvgIcons'
-
+import { Button } from 'react-native-paper'
+const buttonContainer={
+  justifyContent:"center",
+  alignItems:"center",
+  backgroundColor:"#D9D9D9",
+  paddingVertical:10,
+  paddingHorizontal:10,
+}
 export default function DocumentPicker(props) {
-    const {label} = props
+    const {label,nidPicker} = props
   return (
     <View style={styles.documentContainer}>
-     <TouchableOpacity style={styles.photoContainer}>
+     {nidPicker?<></>:<Button onPress={()=>console.log("Camera is Clicked!")} style={styles.photoContainer}>
        <CameraIcon/>
-     </TouchableOpacity>
-     <TouchableOpacity style={styles.uploadIconContainer}>
+     </Button>}
+     <Button onPress={()=>console.log("Upload is Clicked!")} style={nidPicker?styles.photoContainer:styles.uploadIconContainer}>
        <UploadIcon/>
-     </TouchableOpacity>
+     </Button>
      <View >
         <Text style={styles.documentLabel}>{label}</Text>
      </View>
-     <TouchableOpacity style={styles.viewIconContainer}>
+     <Button onPress={()=>console.log("View is clicked!")} style={styles.viewIconContainer}>
        <ViewIcon/>
-     </TouchableOpacity>
+     </Button>
     </View>
   )
 }
@@ -35,29 +42,23 @@ const styles = StyleSheet.create({
         // paddingHorizontal:5
     },
     photoContainer:{
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#D9D9D9",
-        paddingVertical:20,
-        paddingHorizontal:20,
+      ...buttonContainer,
         borderTopLeftRadius:16,
-        borderBottomLeftRadius:16
+        borderBottomLeftRadius:16,
+        borderTopRightRadius:0,
+        borderBottomRightRadius:0,
     },
     uploadIconContainer:{
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#D9D9D9",
-        paddingVertical:20,
-        paddingHorizontal:20,
+      ...buttonContainer,
+
+        borderRadius:0
     },
     viewIconContainer:{
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#D9D9D9",
-        paddingVertical:20,
-        paddingHorizontal:20,
+       ...buttonContainer,
         borderBottomRightRadius:16,
-        borderTopRightRadius:16
+        borderTopRightRadius:16,
+        borderTopLeftRadius:0,
+        borderBottomLeftRadius:0
     },
     documentLabel:{
        color:"#5B5C63"

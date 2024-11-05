@@ -60,12 +60,12 @@ const commonStyles = StyleSheet.create({
     marginTop: 3,
     marginStart: 0,
     color: "#655C5C",
-    fontFamily: "k2d-regular",
+    // fontFamily: "k2d-regular",
   },
   headerText: {
     fontSize: 32,
     textAlign: "center",
-    fontFamily: "k2d-bold",
+    // fontFamily: "k2d-bold",
   },
   subHeaderContainer: {
     // borderLeftWidth: 3,
@@ -138,7 +138,7 @@ const commonStyles = StyleSheet.create({
   },
   checkboxText: {
     fontSize: 12,
-    fontFamily: "k2d-regular",
+    // fontFamily: "k2d-regular",
     color: "#3C3838",
   },
   onboardingDemoField: {
@@ -205,6 +205,6 @@ export const customPickerStyles = StyleSheet.create({
     borderBottomColor: "#969696",
     color: '#000000',
     paddingRight: 30,
-    fontFamily: "k2d-regular", 
+    // fontFamily: "k2d-regular", 
   },
 });

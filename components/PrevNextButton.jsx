@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   Container: {
     flex: 1,
     flexDirection: "row",
-    width: "80%",
+    width: "90%",
   },
   buttonLeft: {
     backgroundColor: "rgba(255, 255, 255, 1)",

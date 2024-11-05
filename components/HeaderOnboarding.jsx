@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16, // Add padding to the sides
-    height: 75 ,           
+    // height: 'auto' ,           
   },
   iconButtonContent: {
     alignItems: 'center',

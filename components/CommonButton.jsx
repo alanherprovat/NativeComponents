@@ -3,7 +3,7 @@ import { Button } from 'react-native-paper';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function CommonButton({mode,onPress,children,RightIcon,LeftIcon,ButtonStyles,LeftIconStyles,RightIconStyles,buttonTextStyles}) {
+export default function CommonButton({mode,onPress,icon,children,RightIcon,LeftIcon,ButtonStyles,LeftIconStyles,RightIconStyles,buttonTextStyles}) {
   return (
     <Button
     //   mode="contained-tonal" 
@@ -15,6 +15,9 @@ export default function CommonButton({mode,onPress,children,RightIcon,LeftIcon,B
         {LeftIcon &&(
           <Icon name="arrow-back-outline" style={[styles.LeftIcon,LeftIconStyles]} />
         )}
+        
+        {icon && icon}
+
         <Text style={[styles.buttonText,buttonTextStyles]}>{children}</Text>
         {RightIcon &&(
           <Icon name="arrow-forward-outline" style={[styles.Righticon,RightIconStyles]} />
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor:'rgba(204, 10, 19, 1)',
-    width: '80%',
+    width: '90%',
     height: 50,
   },
   buttonLabel: {

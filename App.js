@@ -1,49 +1,75 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { StyleSheet, Text, View,SafeAreaView } from 'react-native';
 import CommonButton from './components/CommonButton';
+import PrevNextButton from './components/PrevNextButton';
+import HeaderOnboarding from './components/HeaderOnboarding';
+
 
 export default function App() {
+
+  const bottomSheetRef = useRef(null);
+
+  // callbacks
+  const handleSheetChanges = useCallback((index) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <View style={{marginTop:20}}>
-      </View>
-      <StatusBar style="auto" />
+   
+        <View style={styles.container}>
+        <View style={{marginTop:40}}>
+        </View>
+
+        <Text>Open up App.js to start working on your app!</Text>
+        <View style={{marginTop:20}}>
+        </View>
+        <HeaderOnboarding/>
       
-          <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}> 
-           Next 
-          </CommonButton>
+            <View style={{marginTop:20}}>
+            </View>
 
-          <View style={{marginTop:20}}>
-          </View>
+            <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}> 
+            Next 
+            </CommonButton>
 
-          <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}
-          > 
-           Previous 
-          </CommonButton>
+            <View style={{marginTop:20}}>
+            </View>
 
-          <View style={{marginTop:20}}>
-          </View>
+            <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}
+            > 
+            Previous 
+            </CommonButton>
 
-          <CommonButton LeftIcon={true}  LeftIconStyles={styles.LeftIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
-           Previous 
-          </CommonButton>
+            <View style={{marginTop:20}}>
+            </View>
 
-          <View style={{marginTop:20}}>
-          </View>
-          
-          <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
-           Next 
-          </CommonButton>
+            <CommonButton LeftIcon={true}  LeftIconStyles={styles.LeftIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
+            Previous 
+            </CommonButton>
 
-    </View>
+            <View style={{marginTop:20}}>
+            </View>
+            
+            <CommonButton RightIcon={true}  RightIconStyles={styles.RightIconStyles} buttonTextStyles={styles.buttonTextStyles}> 
+            Next 
+            </CommonButton>
+
+            <View style={{marginTop:20}}>
+            </View>
+            <PrevNextButton>
+              Hello
+            </PrevNextButton>
+        </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F6F3FE',
     alignItems: 'center',
     justifyContent: 'center',
   },

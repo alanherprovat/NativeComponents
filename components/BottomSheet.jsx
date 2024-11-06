@@ -1,72 +1,94 @@
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useCallback, useMemo, useRef, useState } from "react";
-import { Button } from "react-native-paper";
 import { ActiveMailIcon, ActiveWhatsAppIcon, EmailIcon, WhatsAppIcon } from "../config/SvgIcons";
+// import { ExpandIcon, CollapseIcon } from "../config/CustomIcons"; // Replace with your expand/collapse icons
 import OnboardingInput from "./OnboardingInput";
 import CommonButton from "./CommonButton";
-
+import { BlurView } from "expo-blur";
 export default function BottomModal({
   onClose,
   isBottomModalVisible,
   setBottomModalVisible,
 }) {
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
+  const snapPoints = useMemo(() => ["5%", "50%"], []);
+  const [isBlurActive, setIsBlurActive] = useState(true);
 
-  // Handle closing the bottom sheet
   const handleSheetChange = useCallback((index) => {
     console.log("handleSheetChange", index);
+    setIsBlurActive(index!==0)
   }, []);
+
   const communicationMethods = [
     {
       title: "WhatsApp",
       inActiveIcon: <WhatsAppIcon />,
-      activeIcon:<ActiveWhatsAppIcon/>,
+      activeIcon: <ActiveWhatsAppIcon />,
     },
     {
       title: "Email",
       inActiveIcon: <EmailIcon />,
-      activeIcon: <ActiveMailIcon/>,
+      activeIcon: <ActiveMailIcon />,
     },
   ];
+
   const [selected, setSelected] = useState(communicationMethods[0].title);
-  const handleSelect = (title)=>{
-    // console.log(item)
-    setSelected(title)
-  }
+
+  const handleSelect = (title) => {
+    setSelected(title);
+    bottomSheetRef.current?.snapToIndex(0); // Collapse to the minimum snap point
+    setBottomModalVisible(!isBottomModalVisible);
+    setIsExpanded(false);
+  };
+
+
   return (
-    // <View style={{ flex: 1 }}>
+    <View style={StyleSheet.absoluteFill}>
+      {isBlurActive && <BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />}
     <BottomSheet
-    index={1}
+      index={1}
       snapPoints={snapPoints}
       ref={bottomSheetRef}
       onChange={handleSheetChange}
       backgroundStyle={styles.bottomSheetContainer}
-      // enablePanDownToClose={isBottomModalVisible}
-      // onClose={onClose}
+      enablePanDownToClose={false} // Prevent closing, only toggle between 0 and 1
     >
       <BottomSheetView style={styles.contentContainer}>
+
         <View style={styles.bottomSheetHeaderContainer}>
           <Text style={styles.bottomSheetHeader}>Communication Method</Text>
         </View>
+
         <View style={styles.buttonContainer}>
           {communicationMethods.map((item, index) => {
-            const isActive = selected===item.title
+            const isActive = selected === item.title;
             return (
-              <TouchableOpacity key={index} style={isActive?styles.activeButton:styles.inActiveButton} onPress={()=>handleSelect(item.title)}>
-                {isActive?item.activeIcon:item.inActiveIcon}
-                <Text style={isActive?styles.activeButtontext:styles.buttonText}>{item.title}</Text>
+              <TouchableOpacity
+                key={index}
+                style={isActive ? styles.activeButton : styles.inActiveButton}
+                onPress={() => handleSelect(item.title)}
+              >
+                {isActive ? item.activeIcon : item.inActiveIcon}
+                <Text style={isActive ? styles.activeButtonText : styles.buttonText}>{item.title}</Text>
               </TouchableOpacity>
             );
           })}
         </View>
-          <OnboardingInput value="+14055860054" inputTextStyle={styles.inputTextStyle} style={{borderRadius:10,paddingHorizontal:10}}/>
-          <CommonButton RightIcon={true} ButtonStyles={styles.submitButton} buttonTextStyles={styles.submitButtontext} RightIconStyles={styles.rightIconStyles}>
-            Continue
-          </CommonButton>
+
+        <OnboardingInput value="+14055860054" inputTextStyle={styles.inputTextStyle} style={styles.inputStyle} />
+
+        <CommonButton 
+          RightIcon={true} 
+          ButtonStyles={styles.submitButton} 
+          buttonTextStyles={styles.submitButtonText} 
+          RightIconStyles={styles.rightIconStyles}
+        >
+          Continue
+        </CommonButton>
       </BottomSheetView>
     </BottomSheet>
+    </View>
   );
 }
 
@@ -75,14 +97,14 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   contentContainer: {
-    position: "absolute",
-    flex: 1,
+    // flex: 1,
     paddingVertical: 20,
     marginHorizontal: 20,
-    gap:10
-    // alignItems: 'center',
-
-    // borderRadius:0
+    gap: 10,
+  },
+  iconContainer: {
+    alignSelf: "center",
+    marginBottom: 10,
   },
   bottomSheetHeaderContainer: {},
   bottomSheetHeader: {
@@ -92,7 +114,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     gap: 10,
-    // alignItems:"center"
   },
   inActiveButton: {
     borderRadius: 8,
@@ -106,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  activeButton:{
+  activeButton: {
     borderRadius: 8,
     borderWidth: 1,
     borderColor: "#CC0A13",
@@ -117,31 +138,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:"#FFDFDCBF"
+    backgroundColor: "#FFDFDCBF",
   },
-  
   buttonText: {
     fontSize: 22,
     color: "#938080",
   },
-  submitButton:{
-   width:"100%",
-  //  alignItems:"center"
-  //  paddingVertical:10,
-  //  color:"#000"
+  submitButton: {
+    width: "100%",
   },
-  submitButtontext:{
-    color:"#000"
+  submitButtonText: {
+    color: "#000",
   },
-  activeButtontext:{
-    fontSize:22,
-    color:"#000000"
+  activeButtonText: {
+    fontSize: 22,
+    color: "#000000",
   },
-  rightIconStyles:{
+  rightIconStyles: {
     color: "rgba(204, 10, 19, 1)",
   },
-  inputTextStyle:{
-    fontSize:18,
-    fontWeight:"bold"
-  }
+  inputTextStyle: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  inputStyle: {
+    borderRadius: 10,
+    paddingHorizontal: 10,
+  },
 });

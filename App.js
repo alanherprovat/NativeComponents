@@ -382,12 +382,11 @@ export default function App() {
             </View>
           </CustomCard>
 
-          <View style={{ marginTop: 20 }}></View>
-        </View>
-      </ScrollView>
-      {/* {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
-    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>
-    </View>} */}
+        <View style={{ marginTop: 20 }}></View>
+      </View>
+    </ScrollView>
+    {isBottomModalVisible && 
+    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>}
     </GestureHandlerRootView>
   );
 }

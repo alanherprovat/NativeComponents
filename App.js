@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { StyleSheet, Text, View, ScrollView, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import CommonButton from "./components/CommonButton";
 import OnboardingInput from "./components/OnboardingInput";
 import commonStyles from "./assets/Styles/CommonStyles";
@@ -10,10 +10,10 @@ import HeaderOnboarding from "./components/HeaderOnboarding";
 import OnboardingMessageCard from "./components/OnboardingMessageCard";
 import CustomRadioButton from "./components/RadioButton";
 import CustomCheckBox from "./components/CustomCheckBox";
-import CallIcon from "./assets/icons/icons";
+import { CallIcon, BOInfoLogo, InfoIcon } from "./assets/icons/icons";
 import CustomRadio from "./components/RadioButtonTest";
 import CustomCard from "./components/CustomCard";
-import { ProgressBar } from "react-native-paper";
+import { ProgressBar, Text } from "react-native-paper";
 import Progressbar from "./components/Progressbar";
 import OtpInput from "./components/OtpInput";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -118,64 +118,208 @@ export default function App() {
         <View style={{ marginTop: 20 }}>
           <OtpInput />
         </View>
-      </View>
 
-      <OnboardingMessageCard>
-        <CustomRadio options={optionsFace} direction="vertical" />
-      </OnboardingMessageCard>
+        <OnboardingMessageCard>
+          <CustomRadio options={optionsFace} direction="vertical" />
+        </OnboardingMessageCard>
 
-      <OnboardingMessageCard>
-        <CustomRadio
-          options={optionsPass}
-          direction="vertical"
-          style={{ borderColor: "#252526", marginRight: 10 }}
-          selectedButtStyle={{ backgroundColor: "#0F7C4B" }}
-          labelStyle={{ fontSize: 16, color: "#252526" }}
-        />
-      </OnboardingMessageCard>
+        <OnboardingMessageCard>
+          <CustomRadio
+            options={optionsPass}
+            direction="vertical"
+            style={{ borderColor: "#252526", marginRight: 10 }}
+            selectedButtStyle={{ backgroundColor: "#0F7C4B" }}
+            labelStyle={{ fontSize: 16, color: "#252526" }}
+          />
+        </OnboardingMessageCard>
 
-      <View style={{ marginTop: 20 }}></View>
-
-      <OnboardingMessageCard
-        style={{
-          backgroundColor: "#FFFFFF", // Custom background color
-          borderWidth: 1,
-          borderColor: "#B9B9B9",
-        }}
-      >
-        <Text style={styles.TextStyle}>
-          You have a trading account with mobile no. (0185*****10).
-        </Text>
-        <View style={{ marginTop: 10 }}></View>
-        <Text style={styles.TextStyle}>
-          Please use this mobile no. or contact your RM.
-        </Text>
-
-        <View style={{ marginTop: 10 }}></View>
-
-        <CommonButton
-          buttonTextStyles={styles.buttonTextStyles}
-          ButtonStyles={{ width: "100%" }}
-        >
-          {" "}
-          Send OTP
-        </CommonButton>
         <View style={{ marginTop: 20 }}></View>
-        <CommonButton
-          icon={<CallIcon />}
-          buttonTextStyles={styles.buttonTextStyles}
-          ButtonStyles={{ width: "100%" }}
-        >
-          {" "}
-          Call RM
-        </CommonButton>
-      </OnboardingMessageCard>
 
-      <View style={{ marginTop: 20 }}></View>
-      <CustomCard />
-     
-      
-     
+        <OnboardingMessageCard
+          style={{
+            backgroundColor: "#FFFFFF", // Custom background color
+            borderWidth: 1,
+            borderColor: "#B9B9B9",
+          }}
+        >
+          <Text style={styles.TextStyle}>
+            You have a trading account with mobile no. (0185*****10).
+          </Text>
+          <View style={{ marginTop: 10 }}></View>
+          <Text style={styles.TextStyle}>
+            Please use this mobile no. or contact your RM.
+          </Text>
+
+          <View style={{ marginTop: 10 }}></View>
+
+          <CommonButton
+            buttonTextStyles={styles.buttonTextStyles}
+            ButtonStyles={{ width: "100%" }}
+          >
+            {" "}
+            Send OTP
+          </CommonButton>
+          <View style={{ marginTop: 20 }}></View>
+          <CommonButton
+            icon={<CallIcon />}
+            buttonTextStyles={styles.buttonTextStyles}
+            ButtonStyles={{ width: "100%" }}
+          >
+            {" "}
+            Call RM
+          </CommonButton>
+        </OnboardingMessageCard>
+        <View style={{ marginTop: 20 }}></View>
+
+        <CustomCard style={{ height: 448 }}>
+          <BOInfoLogo />
+
+          <View style={{ marginTop: 20 }}></View>
+
+          <Text style={styles.TextStyle}>BO Account Information </Text>
+          <Text style={{ color: "rgba(131, 120, 120, 1)", lineHeight: 26 }}>
+            Please select what type of BO Account you want to open
+          </Text>
+
+          <View style={{ marginTop: 20 }}></View>
+          <CommonButton
+            ButtonStyles={{
+              backgroundColor: "rgba(255, 231, 229, 1)",
+              width: "45%",
+              height: "20%",
+            }}
+            buttonTextStyles={{ color: "rgba(0, 0, 0, 1)" }}
+          >
+            New BO
+          </CommonButton>
+          <CommonButton
+            ButtonStyles={{
+              backgroundColor: "rgba(255, 255, 255, 1)",
+              width: "45%",
+              height: "20%",
+              marginVertical: 10,
+              borderColor: "rgba(181, 181, 181, 1)",
+            }}
+            buttonTextStyles={{ color: "rgba(92, 84, 84, 1)" }}
+          >
+            Link BO
+          </CommonButton>
+        </CustomCard>
+
+        <View style={{ marginTop: 20 }}></View>
+
+        <CommonButton
+          icon={InfoIcon}
+          disabled={true}
+          buttonTextStyles={{
+            fontSize: 15,
+            color: "rgba(0, 32, 105, 1)",
+            lineHeight: 14,
+          }}
+          ButtonStyles={{
+            alignItems: "flex-start",
+            borderColor: "rgba(76, 108, 181, 1)",
+            borderRadius: 20,
+          }}
+        >
+          Tk 500 fee for account opening will be payable upon completing all
+          steps.
+        </CommonButton>
+
+        <View style={{ marginTop: 20 }}></View>
+
+        <CustomCard style={{ borderColor: "#98A1B3" }}>
+          <View>
+            <View style={styles.row}>
+              <Text style={styles.label}>Applicant's Name</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Abdul Salam</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Father's Name</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Abdul Kalam</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Mother's Name</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Rasheda Salam</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>NID Number</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>1234567899</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Mobile Number</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>01996194878</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.label}>Gender</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Male</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Occupation</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Doctor</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Email</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>alanherprovat3@gmail.com</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Present Address</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Paltan VIP Road</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>BO </Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>Single</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>BO ID</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>1234567812345678</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.label}>Signature</Text>
+              <Text style={styles.colon}>:</Text>
+              <Text style={styles.value}>............</Text>
+            </View>
+
+            <View style={styles.row}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  color: "#000000",
+                  textAlign: "left",
+                  marginTop:10,
+                  borderBottomWidth:2
+                }}
+              >
+                Uploaded Document
+              </Text>
+            </View>
+          </View>
+        </CustomCard>
+
+        <View style={{ marginTop: 20 }}></View>
+      </View>
     </ScrollView>
     {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
     <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>
@@ -191,7 +335,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -216,5 +359,31 @@ const styles = StyleSheet.create({
   },
   buttonTextStyles: {
     color: "rgba(204, 10, 19, 1)",
+  },
+
+  row: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    width: "100%", // Ensures the full row width
+    paddingVertical: 5,
+  },
+  label: {
+    width: 150, // Fixed width to align labels consistently
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#000000",
+    textAlign: "left",
+  },
+  colon: {
+    paddingHorizontal: 8,
+    color: "#000000",
+  },
+
+  value: {
+    // flex: 1, // Allows this part to fill the remaining space
+    fontWeight: "400",
+    fontSize: 16,
+    color: "#000000",
+    textAlign: "left",
   },
 });

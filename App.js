@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, TouchableWithoutFeedback } from "react-native";
 import CommonButton from "./components/CommonButton";
 import OnboardingInput from "./components/OnboardingInput";
 import commonStyles from "./assets/Styles/CommonStyles";
@@ -16,7 +16,10 @@ import CustomCard from "./components/CustomCard";
 import { ProgressBar } from "react-native-paper";
 import Progressbar from "./components/Progressbar";
 import OtpInput from "./components/OtpInput";
-
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import BottomSheet from "./components/BottomSheet";
+import BottomModal from "./components/BottomSheet";
+import { BlurView } from "expo-blur";
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
   // Define the options you want to display in the radio button group
@@ -34,8 +37,12 @@ export default function App() {
   const handleSelect = (value) => {
     setSelectedValue(value);
   };
+  const [isBottomModalVisible, setBottomModalVisible] = useState(true); 
 
+  const closeBottomModal = () => setBottomModalVisible(false);
   return (
+    <GestureHandlerRootView style={styles.gestureContainer}>
+     
     <ScrollView style={{
       backgroundColor: "#F6F3FE",
     }}>
@@ -166,11 +173,22 @@ export default function App() {
 
       <View style={{ marginTop: 20 }}></View>
       <CustomCard />
+     
+      
+     
     </ScrollView>
+    {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
+    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>
+    </View>}
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
+  gestureContainer:{
+      flex: 1,
+      backgroundColor: "#000000",
+  },
   container: {
     flex: 1,
     

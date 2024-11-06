@@ -12,15 +12,16 @@ const baseContainerStyle = {
 };
 export default function OnboardingInput(props) {
     const {
+      value,
         leftIcon = null,
         rightIcon = null,
         rightIconPress = ()=>{},
         leftIconPress = ()=>{},
-        readOnly
+        readOnly,
+        inputTextStyle,
         // applicantInformation,
         // style
     } = props
-    // console.log(props)
   const [focusStyle, setFocusStyle] = useState(false);
   const inputRef = useRef(null);
 
@@ -41,11 +42,13 @@ export default function OnboardingInput(props) {
         )}
       <TextInput
         {...props}
+        value={props.value}
         ref={inputRef}
-        style={[
-          styles.textField,
-          { backgroundColor: "transparent" },
-        ]}
+        style={{
+          // ...styles.textField,
+          ...props.inputTextStyle,
+          backgroundColor: "transparent",
+        }}
         underlineColor="transparent"
         activeUnderlineColor="transparent"
         cursorColor="#000"
@@ -78,16 +81,15 @@ const styles = StyleSheet.create({
   textField: {
     // flex: 1,
     fontSize: 16,
-    paddingHorizontal: 8, // Adjust padding if needed
+    paddingHorizontal: 8, 
   },
   leftIconContainer:{
     borderTopLeftRadius:8,
     borderBottomLeftRadius:8,
     justifyContent:'center',
     borderWidth: 1,
-    borderColor: "#98A1B3", // Color for the right border
-    paddingHorizontal: 20, // Space between the border and the input
-    // height: '200%', // Ensures full height of the input container
+    borderColor: "#98A1B3", 
+    paddingHorizontal: 20, 
     alignItems: 'center',
     backgroundColor:"#CC0A13"
   }

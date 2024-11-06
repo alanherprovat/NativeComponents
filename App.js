@@ -321,9 +321,9 @@ export default function App() {
         <View style={{ marginTop: 20 }}></View>
       </View>
     </ScrollView>
-    {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
+    {/* {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
     <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>
-    </View>}
+    </View>} */}
     </GestureHandlerRootView>
   );
 }

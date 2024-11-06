@@ -19,7 +19,7 @@ import OtpInput from "./components/OtpInput";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet from "./components/BottomSheet";
 import BottomModal from "./components/BottomSheet";
-import { BlurView } from "expo-blur";
+
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
   // Define the options you want to display in the radio button group
@@ -321,9 +321,8 @@ export default function App() {
         <View style={{ marginTop: 20 }}></View>
       </View>
     </ScrollView>
-    {isBottomModalVisible && <View style={StyleSheet.absoluteFill}><BlurView intensity={50} style={StyleSheet.absoluteFill} tint="dark" />
-    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>
-    </View>}
+    {isBottomModalVisible && 
+    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>}
     </GestureHandlerRootView>
   );
 }

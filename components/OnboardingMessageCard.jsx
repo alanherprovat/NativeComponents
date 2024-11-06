@@ -25,7 +25,7 @@ export default OnboardingMessageCard
 const styles = StyleSheet.create({
     card: {
       flex: 1,
-      margin: 16,
+      margin: 8,
       width:'90%',
       shadowRadius: 3.84,
       borderRadius: 10,       // Custom border radius

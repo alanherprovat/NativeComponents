@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet,TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { SaveAndExitIcon } from '../assets/icons/icons';
@@ -12,12 +12,19 @@ const HeaderOnboarding = () => (
     >
       <Icon name="arrow-back-outline" style={styles.icon} />
     </Button>
+    
+    
+    <SaveAndExitIcon />
+
+   
 
     <Button
       onPress={() => console.log("Save&Exit button Pressed")}
-      contentStyle={styles.iconButtonContent} // Align icon in button
+      // contentStyle={styles.iconButtonContent} // Align icon in button
+      contentStyle={styles.buttonContent}
+      style={styles.button}
     >
-      <SaveAndExitIcon style={styles.icon} />
+      <SaveAndExitIcon  />
     </Button>
   </View>
 );
@@ -32,14 +39,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16, // Add padding to the sides
-    // height: 'auto' ,           
+    height: 90 ,           
   },
   iconButtonContent: {
-    alignItems: 'center',
-    justifyContent:'center'
+    // alignItems: 'center',
+    justifyContent:'center',
   },
   icon: {
     color: "#000000",
     fontSize: 24,
   },
+  button: {
+    minHeight: 0,
+    minWidth: 0,
+    margin: 0,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  buttonContent: {
+    height: 'auto',
+    width: 'auto',
+    padding: 0,
+    margin: 0,
+   
+  },
+
 });

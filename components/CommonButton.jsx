@@ -3,10 +3,11 @@ import { Button } from 'react-native-paper';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function CommonButton({mode,onPress,icon,children,RightIcon,LeftIcon,ButtonStyles,LeftIconStyles,RightIconStyles,buttonTextStyles}) {
+export default function CommonButton({disabled=false,mode,onPress,icon,children,RightIcon,LeftIcon,ButtonStyles,LeftIconStyles,RightIconStyles,buttonTextStyles}) {
   return (
     <Button
     //   mode="contained-tonal" 
+      disabled={disabled}
       onPress={() => console.log('Pressed')}
       style={[styles.button,ButtonStyles]}
      // labelStyle={styles.buttonLabel}
@@ -29,8 +30,9 @@ export default function CommonButton({mode,onPress,icon,children,RightIcon,LeftI
 
 const styles = StyleSheet.create({
   button: {
+    flex:1,
     backgroundColor: 'rgba(255, 255, 255, 1)',
-    // alignItems: 'center',
+    // alignItems: 'flex-start',
     justifyContent: 'center',
     borderRadius: 10,
     borderWidth: 1,

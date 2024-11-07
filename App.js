@@ -19,9 +19,15 @@ import OtpInput from "./components/OtpInput";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet from "./components/BottomSheet";
 import BottomModal from "./components/BottomSheet";
+import { BlurView } from "expo-blur";
+import BottomSheetElements from "./components/BottomSheetElements";
+import BannerComponent from "./components/BannerComponents";
+
+// import BannerComponent from "./components/BannerComponent";
 
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
+  const snapPoint = 2;
   // Define the options you want to display in the radio button group
   const optionsFace = [
     { label: "Please Blink 2 times", value: "1" },
@@ -42,7 +48,9 @@ export default function App() {
   const closeBottomModal = () => setBottomModalVisible(false);
   return (
     <GestureHandlerRootView style={styles.gestureContainer}>
-     
+     {snapPoint === 2 && (
+        <BlurView intensity={50} style={StyleSheet.absoluteFill} />
+      )}
     <ScrollView style={{
       backgroundColor: "#F6F3FE",
     }}>
@@ -100,20 +108,34 @@ export default function App() {
         <Progressbar
           currentStep={1}
           totalStep={3}
+          title="Nid Front"
+          nextTitle="Nid Back"
+          tintColor="#fff"
+          backgroundColor="#87080EB0"
+        />
+        <Progressbar
+          currentStep={1}
+          totalStep={3}
           title="Personal Info"
           nextTitle="Bank Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
         />
         <Progressbar
           currentStep={2}
           totalStep={3}
           title="Bank Info"
           nextTitle="Nominee Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
         />
         <Progressbar
           currentStep={3}
           totalStep={3}
           title="Nominee(s) Info"
           nextTitle="Review Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
         />
         <View style={{ marginTop: 20 }}>
           <OtpInput />
@@ -317,12 +339,15 @@ export default function App() {
             </View>
           </View>
         </CustomCard>
-
+         {/* <BannerComponent/> */}
+         {/* <BannerComponent/> */}
+         <BannerComponent/>
         <View style={{ marginTop: 20 }}></View>
+
       </View>
     </ScrollView>
-    {isBottomModalVisible && 
-    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>}
+    {/* <BottomModal snapPoint={snapPoint}/> */}
+    <BottomSheetElements/>
     </GestureHandlerRootView>
   );
 }

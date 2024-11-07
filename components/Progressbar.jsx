@@ -3,7 +3,7 @@ import React from "react";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 export default function Progressbar(props) {
-  const {currentStep,totalStep,title,nextTitle} = props;
+  const {currentStep,totalStep,title,nextTitle,tintColor,backgroundColor} = props;
   const stepsComplete = Number(currentStep)/Number(totalStep);
   return (
     <View style={styles.progressbarContainer}>
@@ -11,8 +11,8 @@ export default function Progressbar(props) {
         size={83}
         width={10}  
         fill={stepsComplete*100}
-        tintColor="#169F61"
-        backgroundColor="#fff"
+        tintColor={tintColor}
+        backgroundColor={backgroundColor}
         style={styles.circularProgress}
       >
         {(fill) => (

@@ -23,7 +23,6 @@ import { BlurView } from "expo-blur";
 import { Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
-import { BlurView } from "expo-blur";
 import BottomSheetElements from "./components/BottomSheetElements";
 import BannerComponent from "./components/BannerComponents";
 
@@ -52,9 +51,8 @@ export default function App() {
   const closeBottomModal = () => setBottomModalVisible(false);
   return (
     <GestureHandlerRootView style={styles.gestureContainer}>
-     {snapPoint === 2 && (
         <BlurView intensity={50} style={StyleSheet.absoluteFill} />
-      )}
+   
     <ScrollView style={{
       backgroundColor: "#F6F3FE",
     }}>
@@ -404,11 +402,12 @@ export default function App() {
           </CustomCard>
 
         <View style={{ marginTop: 20 }}></View>
-
+        <BannerComponent/>
       </View>
     </ScrollView>
     {/* <BottomModal snapPoint={snapPoint}/> */}
     <BottomSheetElements/>
+    
     </GestureHandlerRootView>
   );
 }

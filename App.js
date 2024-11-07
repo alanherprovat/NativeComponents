@@ -66,13 +66,15 @@ export default function App() {
   const closeBottomModal = () => setBottomModalVisible(false);
   return (
     <GestureHandlerRootView style={styles.gestureContainer}>
-        <BlurView intensity={50} style={StyleSheet.absoluteFill} />
-   
-    <ScrollView style={{
-      backgroundColor: "#F6F3FE",
-    }}>
-      <View style={styles.container}>
-        <View style={{ marginTop: 40 }}></View>
+      <BlurView intensity={50} style={StyleSheet.absoluteFill} />
+
+      <ScrollView
+        style={{
+          backgroundColor: "#F6F3FE",
+        }}
+      >
+        <View style={styles.container}>
+          <View style={{ marginTop: 40 }}></View>
 
           <Text>Open up App.js to start working on your app!</Text>
           <View style={{ marginTop: 20 }}></View>
@@ -122,37 +124,37 @@ export default function App() {
           <DocumentPicker label="Attach your files here" />
 
           <DocumentPicker label="Attach your files here" nidPicker />
-        <Progressbar
-          currentStep={1}
-          totalStep={3}
-          title="Nid Front"
-          nextTitle="Nid Back"
-          tintColor="#fff"
-          backgroundColor="#87080EB0"
-        />
+          <Progressbar
+            currentStep={1}
+            totalStep={3}
+            title="Nid Front"
+            nextTitle="Nid Back"
+            tintColor="#fff"
+            backgroundColor="#87080EB0"
+          />
           <Progressbar
             currentStep={1}
             totalStep={3}
             title="Personal Info"
             nextTitle="Bank Info"
-          tintColor="#169F61"
-          backgroundColor="#fff"
+            tintColor="#169F61"
+            backgroundColor="#fff"
           />
           <Progressbar
             currentStep={2}
             totalStep={3}
             title="Bank Info"
             nextTitle="Nominee Info"
-          tintColor="#169F61"
-          backgroundColor="#fff"
+            tintColor="#169F61"
+            backgroundColor="#fff"
           />
           <Progressbar
             currentStep={3}
             totalStep={3}
             title="Nominee(s) Info"
             nextTitle="Review Info"
-          tintColor="#169F61"
-          backgroundColor="#fff"
+            tintColor="#169F61"
+            backgroundColor="#fff"
           />
           <View style={{ marginTop: 20 }}>
             <OtpInput />
@@ -419,13 +421,7 @@ export default function App() {
               }}
             >
               <IDLCIcon />
-
-              <CompactMarketInfo/>
-
-              
-
-
-
+              <CompactMarketInfo />
               <View style={{ flexDirection: "row", gap: 5 }}>
                 <NotifyIcon />
                 <Badge />
@@ -436,11 +432,11 @@ export default function App() {
 
           <View style={{ marginTop: 20 }}></View>
            <SliderElements/> 
-          <BannerComponent/>
+          <BannerComponent />
         </View>
       </ScrollView>
-    {/* <BottomModal snapPoint={snapPoint}/> */}
-    <BottomSheetElements/>
+      {/* <BottomModal snapPoint={snapPoint}/> */}
+      <BottomSheetElements />
     </GestureHandlerRootView>
   );
 }

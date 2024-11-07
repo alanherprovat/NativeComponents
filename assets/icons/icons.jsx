@@ -205,8 +205,8 @@ export const NotifyIcon = (props) => (
 
 export const MarketUpArrow = (props) => (
   <Svg
-    width={9}
-    height={11}
+    width={13}
+    height={13}
     viewBox="0 0 9 11"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

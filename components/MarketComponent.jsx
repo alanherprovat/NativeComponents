@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 3,
+    justifyContent:'space-around'
   },
   titleText: {
     fontWeight: 'bold',
@@ -50,8 +51,9 @@ const styles = StyleSheet.create({
   },
   percentageText: {
     fontSize: 13,
-    color: '#4CAF50', // Adjust color as needed
+    color: '#272324', // Adjust color as needed#272324
     marginLeft: 5,
+    fontWeight:'600'
   },
   marketStatusContainer: {
     flexDirection: 'row',

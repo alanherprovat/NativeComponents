@@ -2,14 +2,14 @@ import React from 'react';
 import { Badge } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 
-const BadgeComponent = () => (
+const BadgeComponent = ({notifyCount=13}) => (
   <View style={styles.container}>
     <Badge 
       visible={true} 
       style={styles.customBadge}
       size={20}
     >
-      13
+      {notifyCount}
     </Badge>
   </View>
 );
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: 0,
-    width: 35,
+    width: 32,
     height: 18,
     paddingVertical: 0,    // Remove vertical padding
     paddingHorizontal: 0,  // Remove horizontal padding

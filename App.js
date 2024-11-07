@@ -20,6 +20,10 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet from "./components/BottomSheet";
 import BottomModal from "./components/BottomSheet";
 import { BlurView } from "expo-blur";
+import { Dimensions } from "react-native";
+
+const { width, height } = Dimensions.get("window");
+import { BlurView } from "expo-blur";
 import BottomSheetElements from "./components/BottomSheetElements";
 import BannerComponent from "./components/BannerComponents";
 
@@ -43,7 +47,7 @@ export default function App() {
   const handleSelect = (value) => {
     setSelectedValue(value);
   };
-  const [isBottomModalVisible, setBottomModalVisible] = useState(true); 
+  const [isBottomModalVisible, setBottomModalVisible] = useState(true);
 
   const closeBottomModal = () => setBottomModalVisible(false);
   return (
@@ -57,54 +61,54 @@ export default function App() {
       <View style={styles.container}>
         <View style={{ marginTop: 40 }}></View>
 
-        <Text>Open up App.js to start working on your app!</Text>
-        <View style={{ marginTop: 20 }}></View>
-        <HeaderOnboarding />
+          <Text>Open up App.js to start working on your app!</Text>
+          <View style={{ marginTop: 20 }}></View>
+          <HeaderOnboarding />
 
-        <View style={{ marginTop: 20 }}></View>
+          <View style={{ marginTop: 20 }}></View>
 
-        <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}>
-          Next
-        </CommonButton>
+          <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}>
+            Next
+          </CommonButton>
 
-        <View style={{ marginTop: 20 }}></View>
+          <View style={{ marginTop: 20 }}></View>
 
-        <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}>
-          Previous
-        </CommonButton>
+          <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}>
+            Previous
+          </CommonButton>
 
-        <View style={{ marginTop: 20 }}></View>
+          <View style={{ marginTop: 20 }}></View>
 
-        <CommonButton
-          LeftIcon={true}
-          LeftIconStyles={styles.LeftIconStyles}
-          buttonTextStyles={styles.buttonTextStyles}
-        >
-          Previous
-        </CommonButton>
+          <CommonButton
+            LeftIcon={true}
+            LeftIconStyles={styles.LeftIconStyles}
+            buttonTextStyles={styles.buttonTextStyles}
+          >
+            Previous
+          </CommonButton>
 
-        <View style={{ marginTop: 20 }}></View>
+          <View style={{ marginTop: 20 }}></View>
 
-        <CommonButton
-          RightIcon={true}
-          RightIconStyles={styles.RightIconStyles}
-          buttonTextStyles={styles.buttonTextStyles}
-        >
-          Next
-        </CommonButton>
+          <CommonButton
+            RightIcon={true}
+            RightIconStyles={styles.RightIconStyles}
+            buttonTextStyles={styles.buttonTextStyles}
+          >
+            Next
+          </CommonButton>
 
-        <PrevNextButton />
+          <PrevNextButton />
 
-        <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
-        <OnboardingInput leftIcon="mail" style={{ borderRadius: 8 }} />
-        <Text style={commonStyles.subHeaderText}>Information Input</Text>
-        <OnboardingInput style={{ borderRadius: 16 }} />
-        <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
-        <OnboardingInput readOnly style={{ borderRadius: 16 }} />
-        <Text style={commonStyles.subHeaderText}>Document Picker</Text>
-        <DocumentPicker label="Attach your files here" />
+          <Text style={commonStyles.subHeaderText}>Input with Icon</Text>
+          <OnboardingInput leftIcon="mail" style={{ borderRadius: 8 }} />
+          <Text style={commonStyles.subHeaderText}>Information Input</Text>
+          <OnboardingInput style={{ borderRadius: 16 }} />
+          <Text style={commonStyles.subHeaderText}>Disabled Input</Text>
+          <OnboardingInput readOnly style={{ borderRadius: 16 }} />
+          <Text style={commonStyles.subHeaderText}>Document Picker</Text>
+          <DocumentPicker label="Attach your files here" />
 
-        <DocumentPicker label="Attach your files here" nidPicker />
+          <DocumentPicker label="Attach your files here" nidPicker />
         <Progressbar
           currentStep={1}
           totalStep={3}
@@ -113,235 +117,292 @@ export default function App() {
           tintColor="#fff"
           backgroundColor="#87080EB0"
         />
-        <Progressbar
-          currentStep={1}
-          totalStep={3}
-          title="Personal Info"
-          nextTitle="Bank Info"
+          <Progressbar
+            currentStep={1}
+            totalStep={3}
+            title="Personal Info"
+            nextTitle="Bank Info"
           tintColor="#169F61"
           backgroundColor="#fff"
-        />
-        <Progressbar
-          currentStep={2}
-          totalStep={3}
-          title="Bank Info"
-          nextTitle="Nominee Info"
-          tintColor="#169F61"
-          backgroundColor="#fff"
-        />
-        <Progressbar
-          currentStep={3}
-          totalStep={3}
-          title="Nominee(s) Info"
-          nextTitle="Review Info"
-          tintColor="#169F61"
-          backgroundColor="#fff"
-        />
-        <View style={{ marginTop: 20 }}>
-          <OtpInput />
-        </View>
-
-        <OnboardingMessageCard>
-          <CustomRadio options={optionsFace} direction="vertical" />
-        </OnboardingMessageCard>
-
-        <OnboardingMessageCard>
-          <CustomRadio
-            options={optionsPass}
-            direction="vertical"
-            style={{ borderColor: "#252526", marginRight: 10 }}
-            selectedButtStyle={{ backgroundColor: "#0F7C4B" }}
-            labelStyle={{ fontSize: 16, color: "#252526" }}
           />
-        </OnboardingMessageCard>
-
-        <View style={{ marginTop: 20 }}></View>
-
-        <OnboardingMessageCard
-          style={{
-            backgroundColor: "#FFFFFF", // Custom background color
-            borderWidth: 1,
-            borderColor: "#B9B9B9",
-          }}
-        >
-          <Text style={styles.TextStyle}>
-            You have a trading account with mobile no. (0185*****10).
-          </Text>
-          <View style={{ marginTop: 10 }}></View>
-          <Text style={styles.TextStyle}>
-            Please use this mobile no. or contact your RM.
-          </Text>
-
-          <View style={{ marginTop: 10 }}></View>
-
-          <CommonButton
-            buttonTextStyles={styles.buttonTextStyles}
-            ButtonStyles={{ width: "100%" }}
-          >
-            {" "}
-            Send OTP
-          </CommonButton>
-          <View style={{ marginTop: 20 }}></View>
-          <CommonButton
-            icon={<CallIcon />}
-            buttonTextStyles={styles.buttonTextStyles}
-            ButtonStyles={{ width: "100%" }}
-          >
-            {" "}
-            Call RM
-          </CommonButton>
-        </OnboardingMessageCard>
-        <View style={{ marginTop: 20 }}></View>
-
-        <CustomCard style={{ height: 448 }}>
-          <BOInfoLogo />
-
-          <View style={{ marginTop: 20 }}></View>
-
-          <Text style={styles.TextStyle}>BO Account Information </Text>
-          <Text style={{ color: "rgba(131, 120, 120, 1)", lineHeight: 26 }}>
-            Please select what type of BO Account you want to open
-          </Text>
-
-          <View style={{ marginTop: 20 }}></View>
-          <CommonButton
-            ButtonStyles={{
-              backgroundColor: "rgba(255, 231, 229, 1)",
-              width: "45%",
-              height: "20%",
-            }}
-            buttonTextStyles={{ color: "rgba(0, 0, 0, 1)" }}
-          >
-            New BO
-          </CommonButton>
-          <CommonButton
-            ButtonStyles={{
-              backgroundColor: "rgba(255, 255, 255, 1)",
-              width: "45%",
-              height: "20%",
-              marginVertical: 10,
-              borderColor: "rgba(181, 181, 181, 1)",
-            }}
-            buttonTextStyles={{ color: "rgba(92, 84, 84, 1)" }}
-          >
-            Link BO
-          </CommonButton>
-        </CustomCard>
-
-        <View style={{ marginTop: 20 }}></View>
-
-        <CommonButton
-          icon={InfoIcon}
-          disabled={true}
-          buttonTextStyles={{
-            fontSize: 15,
-            color: "rgba(0, 32, 105, 1)",
-            lineHeight: 14,
-          }}
-          ButtonStyles={{
-            alignItems: "flex-start",
-            borderColor: "rgba(76, 108, 181, 1)",
-            borderRadius: 20,
-          }}
-        >
-          Tk 500 fee for account opening will be payable upon completing all
-          steps.
-        </CommonButton>
-
-        <View style={{ marginTop: 20 }}></View>
-
-        <CustomCard style={{ borderColor: "#98A1B3" }}>
-          <View>
-            <View style={styles.row}>
-              <Text style={styles.label}>Applicant's Name</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Abdul Salam</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Father's Name</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Abdul Kalam</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Mother's Name</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Rasheda Salam</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>NID Number</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>1234567899</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Mobile Number</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>01996194878</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.label}>Gender</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Male</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Occupation</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Doctor</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Email</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>alanherprovat3@gmail.com</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Present Address</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Paltan VIP Road</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>BO </Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>Single</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>BO ID</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>1234567812345678</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text style={styles.label}>Signature</Text>
-              <Text style={styles.colon}>:</Text>
-              <Text style={styles.value}>............</Text>
-            </View>
-
-            <View style={styles.row}>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: "bold",
-                  color: "#000000",
-                  textAlign: "left",
-                  marginTop:10,
-                  borderBottomWidth:2
-                }}
-              >
-                Uploaded Document
-              </Text>
-            </View>
+          <Progressbar
+            currentStep={2}
+            totalStep={3}
+            title="Bank Info"
+            nextTitle="Nominee Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
+          />
+          <Progressbar
+            currentStep={3}
+            totalStep={3}
+            title="Nominee(s) Info"
+            nextTitle="Review Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
+          />
+          <View style={{ marginTop: 20 }}>
+            <OtpInput />
           </View>
-        </CustomCard>
-         {/* <BannerComponent/> */}
-         {/* <BannerComponent/> */}
-         <BannerComponent/>
+
+          <OnboardingMessageCard>
+            <CustomRadio options={optionsFace} direction="vertical" />
+          </OnboardingMessageCard>
+
+          <OnboardingMessageCard>
+            <CustomRadio
+              options={optionsPass}
+              direction="vertical"
+              style={{ borderColor: "#252526", marginRight: 10 }}
+              selectedButtStyle={{ backgroundColor: "#0F7C4B" }}
+              labelStyle={{ fontSize: 16, color: "#252526" }}
+            />
+          </OnboardingMessageCard>
+
+          <View style={{ marginTop: 20 }}></View>
+
+          <OnboardingMessageCard
+            style={{
+              backgroundColor: "#FFFFFF", // Custom background color
+              borderWidth: 1,
+              borderColor: "#B9B9B9",
+            }}
+          >
+            <Text style={styles.TextStyle}>
+              You have a trading account with mobile no. (0185*****10).
+            </Text>
+            <View style={{ marginTop: 10 }}></View>
+            <Text style={styles.TextStyle}>
+              Please use this mobile no. or contact your RM.
+            </Text>
+
+            <View style={{ marginTop: 10 }}></View>
+
+            <CommonButton
+              buttonTextStyles={styles.buttonTextStyles}
+              ButtonStyles={{ width: "100%" }}
+            >
+              {" "}
+              Send OTP
+            </CommonButton>
+            <View style={{ marginTop: 20 }}></View>
+            <CommonButton
+              icon={<CallIcon />}
+              buttonTextStyles={styles.buttonTextStyles}
+              ButtonStyles={{ width: "100%" }}
+            >
+              {" "}
+              Call RM
+            </CommonButton>
+          </OnboardingMessageCard>
+          <View style={{ marginTop: 20 }}></View>
+
+          <CustomCard style={{ height: 448 }}>
+            <BOInfoLogo />
+
+            <View style={{ marginTop: 20 }}></View>
+
+            <Text style={styles.TextStyle}>BO Account Information </Text>
+            <Text style={{ color: "rgba(131, 120, 120, 1)", lineHeight: 26 }}>
+              Please select what type of BO Account you want to open
+            </Text>
+
+            <View style={{ marginTop: 20 }}></View>
+            <CommonButton
+              ButtonStyles={{
+                backgroundColor: "rgba(255, 231, 229, 1)",
+                width: "45%",
+                height: "20%",
+              }}
+              buttonTextStyles={{ color: "rgba(0, 0, 0, 1)" }}
+            >
+              New BO
+            </CommonButton>
+            <CommonButton
+              ButtonStyles={{
+                backgroundColor: "rgba(255, 255, 255, 1)",
+                width: "45%",
+                height: "20%",
+                marginVertical: 10,
+                borderColor: "rgba(181, 181, 181, 1)",
+              }}
+              buttonTextStyles={{ color: "rgba(92, 84, 84, 1)" }}
+            >
+              Link BO
+            </CommonButton>
+          </CustomCard>
+
+          <View style={{ marginTop: 20 }}></View>
+
+          <CommonButton
+            icon={InfoIcon}
+            disabled={true}
+            buttonTextStyles={{
+              fontSize: 15,
+              color: "rgba(0, 32, 105, 1)",
+              lineHeight: 14,
+            }}
+            ButtonStyles={{
+              alignItems: "flex-start",
+              borderColor: "rgba(76, 108, 181, 1)",
+              borderRadius: 20,
+            }}
+          >
+            Tk 500 fee for account opening will be payable upon completing all
+            steps.
+          </CommonButton>
+
+          <View style={{ marginTop: 20 }}></View>
+
+          <CustomCard style={{ borderColor: "#98A1B3" }}>
+            <View style={styles.containerText}>
+              <View style={styles.section}>
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Applicant's Name</Text>
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.value}>Abdul Salam</Text>
+                  </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Father's Name</Text>    
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>Abdul Kalam</Text>
+                  </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Mother's Name</Text>
+                  
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>Rasheda Salam</Text>
+                  </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>NID Number</Text>
+                    
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                
+                  <Text style={styles.value}>1234567899</Text>
+                  </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Mobile Number</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>01996194878</Text>
+                   </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Gender</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>Male</Text>
+                  </View>
+                 
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Occupation</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>    
+                    <Text style={styles.value}>Doctor</Text>
+                  </View>
+               
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Email</Text>
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.value}>alanherprovat3@gmail.com</Text>
+                  </View>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Present Address</Text>
+                  
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>Paltan VIP Road</Text>
+                    </View>
+                  
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>BO</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>Single</Text>
+                  </View>
+
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>BO ID</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>1234567812345678</Text>
+                    </View>
+                 
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.labelContainer}>
+                    <Text style={styles.label}>Signature</Text>
+                   
+                  </View>
+                  <Text style={styles.colon}>:</Text>
+                  <View style={styles.labelContainer}>
+                  <Text style={styles.value}>............</Text>
+                  </View>
+                 
+                </View>
+
+                <View style={styles.row}>
+                <View style={styles.documentHeader}>
+                  <Text style={styles.documentTitle}>Uploaded Documents</Text>
+                </View>
+                </View>
+               
+              </View>
+            </View>
+          </CustomCard>
+
         <View style={{ marginTop: 20 }}></View>
 
       </View>
@@ -353,9 +414,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  gestureContainer:{
-      flex: 1,
-      backgroundColor: "#000000",
+  gestureContainer: {
+    flex: 1,
+    backgroundColor: "#000000",
   },
   container: {
     flex: 1,
@@ -385,29 +446,50 @@ const styles = StyleSheet.create({
     color: "rgba(204, 10, 19, 1)",
   },
 
+  containerText: {
+    flex: 1,
+    marginHorizontal: 10,
+    paddingVertical: 10,
+  },
+  section: {
+    gap: 8,
+  },
   row: {
     flexDirection: "row",
-    justifyContent: "flex-start",
-    width: "100%", // Ensures the full row width
-    paddingVertical: 5,
+    flexWrap: "wrap",
+    marginBottom: 4,
+    gap: 8,
+  },
+  labelContainer: {
+    flexDirection: "row",
+    minWidth: width * 0.3 ,
+    maxWidth: "50%",
   },
   label: {
-    width: 150, // Fixed width to align labels consistently
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#000000",
-    textAlign: "left",
+    fontSize: width>481 ? 18 : 14,
+    color: "#333",
+    fontWeight:'bold',
+    flexShrink: 1,
   },
   colon: {
-    paddingHorizontal: 8,
-    color: "#000000",
+    paddingHorizontal: 4,
+    color: "#333",
   },
-
   value: {
-    // flex: 1, // Allows this part to fill the remaining space
-    fontWeight: "400",
-    fontSize: 16,
+    // flex: 1,
+    fontSize: width>481 ? 18 : 14,
+    color: "#333",
+    flexWrap: "wrap",
+  },
+  documentHeader: {
+    marginTop: 16,
+  },
+  documentTitle: {
+    fontSize: width>481 ? 20 : 18,
+    fontWeight: "bold",
     color: "#000000",
-    textAlign: "left",
+    paddingBottom: 8,
+    borderBottomWidth: 2,
+    borderBottomColor: "#000000",
   },
 });

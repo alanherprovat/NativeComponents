@@ -60,18 +60,13 @@ const styles = StyleSheet.create({
    height:500
   },
   innerContainer: {
-    // flex: 1, // Allow the container to grow with content
     width:"100%",
-    backgroundColor: "#fff",
-    // marginHorizontal: 30,
-    justifyContent: "flex-end", // Ensure pagination stays at the bottom
+    backgroundColor: "#FFFFFFD9",
+    justifyContent: "flex-end"
   },
   imageWrapper:{
     width: width,
-    height:200,
-    // overflow:"hidden"
-    // paddingHorizontal: 30,
-    
+    height:200
   },
   image:{
     width:"100%",

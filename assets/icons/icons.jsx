@@ -263,3 +263,67 @@ export const MarketDownArrow = (props) => (
     </Defs>
   </Svg>
 );
+export const IndicatorUpIcon = ({props}) =>{
+  return(
+    <Svg
+    width={12}
+    height={13}
+    viewBox="0 0 12 13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <Path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M8.67552 7.84219L3.32471 7.84219V12.9998L8.67552 12.9998V7.84219ZM6 0.5956L0 7.8421L12 7.8421L6 0.5956Z"
+      fill="url(#paint0_linear_2641_4098)"
+    />
+    <Defs>
+      <LinearGradient
+        id="paint0_linear_2641_4098"
+        x1={6}
+        y1={8.24626}
+        x2={6}
+        y2={0.999756}
+        gradientUnits="userSpaceOnUse"
+      >
+        <Stop offset={0.157656} stopColor="#11CD04" />
+        <Stop offset={0.822329} stopColor="#006607" />
+      </LinearGradient>
+    </Defs>
+  </Svg>
+  )
+}
+export const IndicatorDownIcon = ({props}) =>{
+  return(
+    <Svg
+    width={12}
+    height={13}
+    viewBox="0 0 12 13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <Path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3.32448 5.15756H8.67529V0H3.32448V5.15756ZM6 12.4042L12 5.15766H0L6 12.4042Z"
+      fill="url(#paint0_linear_2641_4073)"
+    />
+    <Defs>
+      <LinearGradient
+        id="paint0_linear_2641_4073"
+        x1={6}
+        y1={4.7535}
+        x2={6}
+        y2={12}
+        gradientUnits="userSpaceOnUse"
+      >
+        <Stop offset={0.157656} stopColor="#FF0000" />
+        <Stop offset={0.822329} stopColor="#660000" />
+      </LinearGradient>
+    </Defs>
+  </Svg>
+  )
+}

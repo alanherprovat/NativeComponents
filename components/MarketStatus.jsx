@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
   gradientBox: {
     width: width>450? 50:40,
     height: 'auto',
-    borderRadius: 2,
+    borderRadius: 5,
   },
   textStyle:{
     // fontFamily: 'K2D-Regular',
     fontSize:12,
+    fontWeight:'bold',
     // fontWeight: 600,
     // lineHeight: 11,
     textAlign:'center'

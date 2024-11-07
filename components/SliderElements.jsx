@@ -31,8 +31,8 @@ export default function SliderElements() {
               </View>
             </View>
             <View >
-              <Text style={styles.text}>{item.last_trading_price}</Text>
-              <Text style={styles.text}>{item.change_percent}</Text>
+              <Text style={{...styles.text,textAlign:"center"}}>{item.last_trading_price}</Text>
+              <Text style={{...styles.text,textAlign:"center"}}>{item.change_percent}</Text>
             </View>
             </View>
 
@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     borderColor:"#526D8280"
   },
   contentContainer: {
-    gap:14,
+    gap:16,
     flexDirection: "row",
     alignItems: "center",
   },
   singleItemContainer:{
     flexDirection:"row",
-    gap:4
+    gap:3
   },
   percentageContainer:{
     flexDirection:"row",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     // justifyContent:"center"
   },
   text: {
-    textAlign:"center",
+    // textAlign:"center",
     fontSize: 14,
     fontWeight:"500"
   },

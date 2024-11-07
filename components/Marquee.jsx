@@ -3,7 +3,7 @@ import React from 'react'
 import { Marquee } from '@animatereactnative/marquee';
 export default function AutoSlider({children}) {
   return (
-    <Marquee spacing={20} speed={0.3}>
+    <Marquee spacing={20} speed={0.4}>
       {children}
     </Marquee>
 

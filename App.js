@@ -37,9 +37,14 @@ import HeaderAfterLogin from "./components/HeaderAfterLogin";
 import Badge from "./components/Badge";
 
 const { width, height } = Dimensions.get("window");
+import BottomSheetElements from "./components/BottomSheetElements";
+import BannerComponent from "./components/BannerComponents";
+
+// import BannerComponent from "./components/BannerComponent";
 
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
+  const snapPoint = 2;
   // Define the options you want to display in the radio button group
   const optionsFace = [
     { label: "Please Blink 2 times", value: "1" },
@@ -60,13 +65,13 @@ export default function App() {
   const closeBottomModal = () => setBottomModalVisible(false);
   return (
     <GestureHandlerRootView style={styles.gestureContainer}>
-      <ScrollView
-        style={{
-          backgroundColor: "#F6F3FE",
-        }}
-      >
-        <View style={styles.container}>
-          <View style={{ marginTop: 40 }}></View>
+        <BlurView intensity={50} style={StyleSheet.absoluteFill} />
+   
+    <ScrollView style={{
+      backgroundColor: "#F6F3FE",
+    }}>
+      <View style={styles.container}>
+        <View style={{ marginTop: 40 }}></View>
 
           <Text>Open up App.js to start working on your app!</Text>
           <View style={{ marginTop: 20 }}></View>
@@ -116,23 +121,37 @@ export default function App() {
           <DocumentPicker label="Attach your files here" />
 
           <DocumentPicker label="Attach your files here" nidPicker />
+        <Progressbar
+          currentStep={1}
+          totalStep={3}
+          title="Nid Front"
+          nextTitle="Nid Back"
+          tintColor="#fff"
+          backgroundColor="#87080EB0"
+        />
           <Progressbar
             currentStep={1}
             totalStep={3}
             title="Personal Info"
             nextTitle="Bank Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
           />
           <Progressbar
             currentStep={2}
             totalStep={3}
             title="Bank Info"
             nextTitle="Nominee Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
           />
           <Progressbar
             currentStep={3}
             totalStep={3}
             title="Nominee(s) Info"
             nextTitle="Review Info"
+          tintColor="#169F61"
+          backgroundColor="#fff"
           />
           <View style={{ marginTop: 20 }}>
             <OtpInput />
@@ -402,21 +421,7 @@ export default function App() {
 
               <CompactMarketInfo/>
 
-              {/* <View style={{ flexDirection: "col", gap: 5 }}>
-                <View style={{ flexDirection: "row", gap: 5 }}>
-                  <Text> DSEX</Text>
-                  <Text> 5756.71</Text>
-                </View>
-                <View style={{ flexDirection: "row", gap: 1 }}>
-                  <MarketUpArrow />
-                  <Text> 75.90 </Text>
-                  <Text> 1.70%</Text>
-                </View>
-                <View style={{ flexDirection: "row", gap: 1,backgroundColor: "#DFE9FCA6",borderRadius: 5,   justifyContent: 'center', }}>
-                  <Text>Market: </Text>
-                   <MarketStatus>Open</MarketStatus>
-                </View>
-              </View> */}
+              
 
 
 
@@ -429,10 +434,11 @@ export default function App() {
           </HeaderAfterLogin>
 
           <View style={{ marginTop: 20 }}></View>
+          <BannerComponent/>
         </View>
       </ScrollView>
-      {/* {isBottomModalVisible && 
-    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>} */}
+    {/* <BottomModal snapPoint={snapPoint}/> */}
+    <BottomSheetElements/>
     </GestureHandlerRootView>
   );
 }

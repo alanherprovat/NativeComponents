@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
       buttonContainer: {
         width:"100%",
         flexDirection: "row",
-        gap: 10,
+       justifyContent:'space-between'
       },
       inActiveButton: {
         borderRadius: 8,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 10,
         paddingVertical: 10,
-        width: 180,
+        width: '49%',
         paddingHorizontal: 10,
         alignItems: "center",
         justifyContent: "center",
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 10,
         paddingVertical: 10,
-        width: 180,
+        width: '49%',
         paddingHorizontal: 10,
         alignItems: "center",
         justifyContent: "center",

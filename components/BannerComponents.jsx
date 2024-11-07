@@ -56,8 +56,8 @@ export default function BannerComponent() {
 
 const styles = StyleSheet.create({
   container: {
-//    flex:1,
-   height:500
+   flex:1,
+  //  height:500
   },
   innerContainer: {
     width:"100%",

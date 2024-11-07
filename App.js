@@ -8,19 +8,33 @@ import DocumentPicker from "./components/DocumentPicker";
 import PrevNextButton from "./components/PrevNextButton";
 import HeaderOnboarding from "./components/HeaderOnboarding";
 import OnboardingMessageCard from "./components/OnboardingMessageCard";
+import MarketStatus from "./components/MarketStatus";
 import CustomRadioButton from "./components/RadioButton";
 import CustomCheckBox from "./components/CustomCheckBox";
-import { CallIcon, BOInfoLogo, InfoIcon } from "./assets/icons/icons";
+import CompactMarketInfo from "./components/MarketComponent";
+import {
+  CallIcon,
+  BOInfoLogo,
+  InfoIcon,
+  IDLCIcon,
+  ProfileIcon,
+  NotifyIcon,
+  MarketUpArrow,
+  MarketDownArrow,
+} from "./assets/icons/icons";
 import CustomRadio from "./components/RadioButtonTest";
 import CustomCard from "./components/CustomCard";
 import { ProgressBar, Text } from "react-native-paper";
 import Progressbar from "./components/Progressbar";
 import OtpInput from "./components/OtpInput";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import ServiceCustomCard from "./components/ServiceCustomCard";
 import BottomSheet from "./components/BottomSheet";
 import BottomModal from "./components/BottomSheet";
 import { BlurView } from "expo-blur";
 import { Dimensions } from "react-native";
+import HeaderAfterLogin from "./components/HeaderAfterLogin";
+import Badge from "./components/Badge";
 
 const { width, height } = Dimensions.get("window");
 
@@ -248,70 +262,62 @@ export default function App() {
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
-                    <Text style={styles.label}>Father's Name</Text>    
+                    <Text style={styles.label}>Father's Name</Text>
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>Abdul Kalam</Text>
+                    <Text style={styles.value}>Abdul Kalam</Text>
                   </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Mother's Name</Text>
-                  
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>Rasheda Salam</Text>
+                    <Text style={styles.value}>Rasheda Salam</Text>
                   </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>NID Number</Text>
-                    
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                
-                  <Text style={styles.value}>1234567899</Text>
+                    <Text style={styles.value}>1234567899</Text>
                   </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Mobile Number</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>01996194878</Text>
-                   </View>
+                    <Text style={styles.value}>01996194878</Text>
+                  </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Gender</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>Male</Text>
+                    <Text style={styles.value}>Male</Text>
                   </View>
-                 
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Occupation</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
-                  <View style={styles.labelContainer}>    
+                  <View style={styles.labelContainer}>
                     <Text style={styles.value}>Doctor</Text>
                   </View>
-               
                 </View>
 
                 <View style={styles.row}>
@@ -327,66 +333,106 @@ export default function App() {
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Present Address</Text>
-                  
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>Paltan VIP Road</Text>
-                    </View>
-                  
+                    <Text style={styles.value}>Paltan VIP Road</Text>
+                  </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>BO</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>Single</Text>
+                    <Text style={styles.value}>Single</Text>
                   </View>
-
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>BO ID</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>1234567812345678</Text>
-                    </View>
-                 
+                    <Text style={styles.value}>1234567812345678</Text>
+                  </View>
                 </View>
 
                 <View style={styles.row}>
                   <View style={styles.labelContainer}>
                     <Text style={styles.label}>Signature</Text>
-                   
                   </View>
                   <Text style={styles.colon}>:</Text>
                   <View style={styles.labelContainer}>
-                  <Text style={styles.value}>............</Text>
+                    <Text style={styles.value}>............</Text>
                   </View>
-                 
                 </View>
 
                 <View style={styles.row}>
-                <View style={styles.documentHeader}>
-                  <Text style={styles.documentTitle}>Uploaded Documents</Text>
+                  <View style={styles.documentHeader}>
+                    <View style={styles.underlineWrapper}>
+                      <Text style={styles.documentTitle}>
+                        Uploaded Documents
+                      </Text>
+                    </View>
+                  </View>
                 </View>
-                </View>
-               
               </View>
             </View>
           </CustomCard>
 
-        <View style={{ marginTop: 20 }}></View>
-      </View>
-    </ScrollView>
-    {isBottomModalVisible && 
-    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>}
+          <View style={{ marginTop: 20 }}></View>
+
+          <ServiceCustomCard />
+
+          <View style={{ marginTop: 20 }}></View>
+
+          <HeaderAfterLogin>
+            <View
+              style={{
+                width: "100%",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <IDLCIcon />
+
+              <CompactMarketInfo/>
+
+              {/* <View style={{ flexDirection: "col", gap: 5 }}>
+                <View style={{ flexDirection: "row", gap: 5 }}>
+                  <Text> DSEX</Text>
+                  <Text> 5756.71</Text>
+                </View>
+                <View style={{ flexDirection: "row", gap: 1 }}>
+                  <MarketUpArrow />
+                  <Text> 75.90 </Text>
+                  <Text> 1.70%</Text>
+                </View>
+                <View style={{ flexDirection: "row", gap: 1,backgroundColor: "#DFE9FCA6",borderRadius: 5,   justifyContent: 'center', }}>
+                  <Text>Market: </Text>
+                   <MarketStatus>Open</MarketStatus>
+                </View>
+              </View> */}
+
+
+
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <NotifyIcon />
+                <Badge />
+                <ProfileIcon />
+              </View>
+            </View>
+          </HeaderAfterLogin>
+
+          <View style={{ marginTop: 20 }}></View>
+        </View>
+      </ScrollView>
+      {/* {isBottomModalVisible && 
+    <BottomModal isBottomModalVisible={isBottomModalVisible} onClose={closeBottomModal} setBottomModalVisible={setBottomModalVisible}/>} */}
     </GestureHandlerRootView>
   );
 }
@@ -440,13 +486,13 @@ const styles = StyleSheet.create({
   },
   labelContainer: {
     flexDirection: "row",
-    minWidth: width * 0.3 ,
+    minWidth: width * 0.3,
     maxWidth: "50%",
   },
   label: {
-    fontSize: width>481 ? 18 : 14,
+    fontSize: width > 481 ? 18 : 14,
     color: "#333",
-    fontWeight:'bold',
+    fontWeight: "bold",
     flexShrink: 1,
   },
   colon: {
@@ -455,19 +501,21 @@ const styles = StyleSheet.create({
   },
   value: {
     // flex: 1,
-    fontSize: width>481 ? 18 : 14,
+    fontSize: width > 481 ? 18 : 14,
     color: "#333",
     flexWrap: "wrap",
   },
   documentHeader: {
     marginTop: 16,
   },
-  documentTitle: {
-    fontSize: width>481 ? 20 : 18,
-    fontWeight: "bold",
-    color: "#000000",
-    paddingBottom: 8,
+  underlineWrapper: {
     borderBottomWidth: 2,
     borderBottomColor: "#000000",
+    paddingBottom: 8,
+  },
+  documentTitle: {
+    fontSize: width > 481 ? 20 : 18,
+    fontWeight: "bold",
+    color: "#000000",
   },
 });

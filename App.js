@@ -35,6 +35,7 @@ import { BlurView } from "expo-blur";
 import { Dimensions } from "react-native";
 import HeaderAfterLogin from "./components/HeaderAfterLogin";
 import Badge from "./components/Badge";
+import ServiceReqCard from "./components/ServiceReqCard";
 
 const { width, height } = Dimensions.get("window");
 import BottomSheetElements from "./components/BottomSheetElements";
@@ -55,6 +56,22 @@ export default function App() {
     { label: "1 Upper case & 1 Lower case", value: "2" },
     { label: "1 Special Character", value: "3" },
   ];
+  const ServiceData1 = {
+    Request_Type: "Deposit Request",
+    ReqAmount: "100,000",
+    currStatus: "Processing",
+  };
+  const ServiceData2 = {
+    Request_Type: "IPO Appication",
+    ScriptName:"Orion Pharma Ltd.",
+    // ReqAmount: "100,000",
+    currStatus: "Processing",
+  };
+  const ServiceData3 = {
+    Request_Type: "Withdrawal Request",
+    WithdrawAmount: "100,000",
+    currStatus: "Completed",
+  };
 
   // Handle selection change
   const handleSelect = (value) => {
@@ -431,10 +448,15 @@ export default function App() {
 
           <View style={{ marginTop: 20 }}></View>
           <BannerComponent />
+          <ServiceReqCard data={ServiceData1}/>
+          <ServiceReqCard data={ServiceData2}/>
+          <ServiceReqCard data={ServiceData3}/>
+
+          <View style={{ marginTop: 90 }}></View>
         </View>
       </ScrollView>
-      {/* <BottomModal snapPoint={snapPoint}/> */}
-      <BottomSheetElements />
+
+      {/* <BottomSheetElements /> */}
     </GestureHandlerRootView>
   );
 }

@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { CameraIcon, UploadIcon, ViewIcon } from '../config/SvgIcons'
 import { Button } from 'react-native-paper'
+import { isTablet } from '../config/config'
 const buttonContainer={
   justifyContent:"center",
   alignItems:"center",
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     },
     fileUploadContainer:{
       flexDirection:"row",
-      gap:30
+      gap: isTablet?20:10
     },
     photoContainer:{
       ...buttonContainer,

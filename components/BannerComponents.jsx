@@ -5,7 +5,7 @@ import { SwiperFlatList } from "react-native-swiper-flatlist";
 const { width } = Dimensions.get("window");
 
 export default function BannerComponent() {
-    const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const bannerImages = [
     { bannerimg: require("../assets/images/s3.jpg") },
     { bannerimg: require("../assets/images/s1.jpg") },
@@ -14,9 +14,8 @@ export default function BannerComponent() {
 
   const renderItem = ({ item }) => (
     <View style={styles.imageWrapper}>
-<Image source={item.bannerimg} style={styles.image} />
+      <Image source={item.bannerimg} style={styles.image} />
     </View>
-    
   );
   const renderCustomPagination = () => {
     return (
@@ -41,14 +40,13 @@ export default function BannerComponent() {
           autoplayDelay={3}
           autoplayLoop
           index={2}
-        //   showPagination={true}
+          //   showPagination={true}
           paginationStyleItem={{ ...styles.paginationItem }}
           data={bannerImages}
           renderItem={renderItem}
           onChangeIndex={({ index }) => setActiveIndex(index)}
         />
         {renderCustomPagination()}
-       
       </View>
     </View>
   );
@@ -56,23 +54,22 @@ export default function BannerComponent() {
 
 const styles = StyleSheet.create({
   container: {
-   flex:1,
-  //  height:500
+    flex: 1,
+    //  height:500
   },
   innerContainer: {
-    width:"100%",
+    width: "100%",
     backgroundColor: "#FFFFFFD9",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
-  imageWrapper:{
+  imageWrapper: {
     width: width,
-    height:200
+    height: 200,
   },
-  image:{
-    width:"100%",
-    height:"100%",
+  image: {
+    width: "100%",
+    height: "100%",
     resizeMode: "contain",
-
   },
   paginationContainer: {
     position: "absolute",
@@ -89,7 +86,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: "#ED1C24", 
+    backgroundColor: "#ED1C24",
     width: 10,
     height: 10,
     borderRadius: 6,
@@ -97,9 +94,9 @@ const styles = StyleSheet.create({
   inactiveDot: {
     width: 10,
     height: 10,
-    backgroundColor: "transparent", 
-    borderColor:"#ED1C24",
-    borderWidth:1,
-    borderRadius:6
+    backgroundColor: "transparent",
+    borderColor: "#ED1C24",
+    borderWidth: 1,
+    borderRadius: 6,
   },
 });

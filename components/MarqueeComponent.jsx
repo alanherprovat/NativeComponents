@@ -5,7 +5,7 @@ import StockMarketJson from "../config/StockMarket.json";
 import { IndicatorDownIcon, IndicatorUpIcon } from "../assets/icons/icons";
 import { Marquee } from "@animatereactnative/marquee";
 
-export default function SliderElements() {
+export default function MarqueeComponent() {
   const [data, setData] = useState([]);
 
   useEffect(() => {

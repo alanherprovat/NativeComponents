@@ -20,7 +20,7 @@ import {
   ProfileIcon,
   NotifyIcon,
   MarketUpArrow,
-  MarketDownArrow,
+  MarketDownArrow,SVGComponent,SVGComponentTab
 } from "./assets/icons/icons";
 import CustomRadio from "./components/RadioButtonTest";
 import CustomCard from "./components/CustomCard";
@@ -232,8 +232,14 @@ export default function App() {
           </OnboardingMessageCard>
           <View style={{ marginTop: 20 }}></View>
 
-          <CustomCard style={{ height: 448 }}>
-            <BOInfoLogo />
+          <CustomCard style={{ height: width>=450? 550: 450 }}>
+
+          {width>=450 &&(
+                <BOInfoLogo width={260} height={240}/>
+            )}
+            {width<450 &&(
+                <BOInfoLogo/>
+            )}
 
             <View style={{ marginTop: 20 }}></View>
 
@@ -468,7 +474,32 @@ export default function App() {
           <ServiceReqCard data={ServiceData1}/>
           <ServiceReqCard data={ServiceData2}/>
           <ServiceReqCard data={ServiceData3}/>
-           
+
+
+          <View style={{ flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+
+            {width>=450 &&(
+              <>
+                 <SVGComponentTab style={{ position: 'absolute', bottom: 71, zIndex: 3,left:30 }} />
+                <BOInfoLogo width={260} height={240}/>
+              </>
+            )}
+             {width<450 &&(
+              <>
+                 <SVGComponent style={{ position: 'absolute', top: 76, zIndex: 3,right:70 }} />
+                 <BOInfoLogo/>
+              </>
+            )}
+
+</View>
+
+
+
+
+
+
+
+
           <View style={{ marginTop: 90 }}></View>
         </View>
       </ScrollView>

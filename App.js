@@ -40,8 +40,9 @@ import ServiceReqCard from "./components/ServiceReqCard";
 const { width, height } = Dimensions.get("window");
 import BottomSheetElements from "./components/BottomSheetElements";
 import BannerComponent from "./components/BannerComponents";
-import SliderElements from "./components/SliderElements";
+import SliderElements from "./components/MarqueeComponent";
 import UploadDocuments from "./components/UploadDocuments";
+import MarqueeComponent from "./components/MarqueeComponent";
 
 // import BannerComponent from "./components/BannerComponent";
 
@@ -449,7 +450,7 @@ export default function App() {
           </HeaderAfterLogin>
 
           <View style={{ marginTop: 20 }}></View>
-           <SliderElements/> 
+           <MarqueeComponent/> 
           <BannerComponent />
           <UploadDocuments documentName="NID.png"/>
           <ServiceReqCard data={ServiceData1}/>

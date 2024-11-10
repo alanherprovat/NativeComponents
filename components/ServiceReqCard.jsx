@@ -13,7 +13,7 @@ const ServiceReqCard = ({ CardStyle,data }) => {
             {data?.ReqAmount &&  <Text style={styles.amount}>BDT {data?.ReqAmount}</Text>}
             {data?.ScriptName &&  <Text style={styles.amount}>{data?.ScriptName}</Text>}
             {data?.WithdrawAmount &&  <Text style={styles.amount}>BDT {data?.WithdrawAmount}</Text>}
-            <Text style={[styles.status,data?.currStatus ==="Completed"?{color:"#24834A"}:null]}>{data?.currStatus}...</Text>
+            <Text style={[styles.status,data?.currStatus ==="Completed"?{color:"#24834A"}:null]}>{data?.currStatus ==="Completed"?data?.currStatus:data?.currStatus+"..."}</Text>
           </View>
           
           {/* Right-aligned date content */}

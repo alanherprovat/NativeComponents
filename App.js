@@ -46,6 +46,8 @@ import SliderElements from "./components/SliderElements";
 
 export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedNewBO, setSelectedNewBO] = useState(true);
+  const [selectedLinkBO, setSelectedLinkBO] = useState(false);
   const snapPoint = 2;
   // Define the options you want to display in the radio button group
   const optionsFace = [
@@ -241,24 +243,35 @@ export default function App() {
 
             <View style={{ marginTop: 20 }}></View>
             <CommonButton
+              selected={true}
+              onPress={ ()=>{
+                setSelectedNewBO(true)
+                setSelectedLinkBO(false)
+              }
+              }
               ButtonStyles={{
-                backgroundColor: "rgba(255, 231, 229, 1)",
+                backgroundColor: selectedNewBO ? "rgba(255, 231, 229, 1)":"rgba(255, 255, 255, 1)",
+                borderColor:selectedNewBO ?'rgba(204, 10, 19, 1)': 'rgba(181, 181, 181, 1)',
                 width: "45%",
                 height: "20%",
               }}
-              buttonTextStyles={{ color: "rgba(0, 0, 0, 1)" }}
+              buttonTextStyles={{ color:  selectedNewBO ? "rgba(0, 0, 0, 1)": "rgba(92, 84, 84, 1)" }}
             >
               New BO
             </CommonButton>
             <CommonButton
               ButtonStyles={{
-                backgroundColor: "rgba(255, 255, 255, 1)",
+                backgroundColor: !selectedLinkBO?"rgba(255, 255, 255, 1)":"rgba(255, 231, 229, 1)",
                 width: "45%",
                 height: "20%",
                 marginVertical: 10,
-                borderColor: "rgba(181, 181, 181, 1)",
+                borderColor: !selectedLinkBO ? "rgba(181, 181, 181, 1)": "rgba(204, 10, 19, 1)",
               }}
-              buttonTextStyles={{ color: "rgba(92, 84, 84, 1)" }}
+              buttonTextStyles={{ color:  selectedLinkBO ? "rgba(0, 0, 0, 1)":"rgba(92, 84, 84, 1)" }}
+              onPress={()=>{
+                setSelectedLinkBO(true)
+                setSelectedNewBO(false)
+              }}
             >
               Link BO
             </CommonButton>

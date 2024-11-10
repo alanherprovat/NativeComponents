@@ -8,7 +8,7 @@ export default function CommonButton({disabled=false,mode,onPress,icon,children,
     <Button
     //   mode="contained-tonal" 
       disabled={disabled}
-      onPress={() => console.log('Pressed')}
+      onPress={onPress}
       style={[styles.button,ButtonStyles]}
      // labelStyle={styles.buttonLabel}
     >

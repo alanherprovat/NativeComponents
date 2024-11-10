@@ -103,13 +103,13 @@ export default function App() {
 
           <View style={{ marginTop: 20 }}></View>
 
-          <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles}>
+          <CommonButton RightIcon={true} ButtonStyles={styles.ButtonStyles} onPress={()=>console.log("next Button is Pressed")}>
             Next
           </CommonButton>
 
           <View style={{ marginTop: 20 }}></View>
 
-          <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles}>
+          <CommonButton LeftIcon={true} ButtonStyles={styles.ButtonStyles} onPress={()=>console.log("Previous Button is Pressed")}>
             Previous
           </CommonButton>
 
@@ -119,6 +119,7 @@ export default function App() {
             LeftIcon={true}
             LeftIconStyles={styles.LeftIconStyles}
             buttonTextStyles={styles.buttonTextStyles}
+            onPress={()=>console.log("Previous Button is Pressed")}
           >
             Previous
           </CommonButton>
@@ -129,6 +130,7 @@ export default function App() {
             RightIcon={true}
             RightIconStyles={styles.RightIconStyles}
             buttonTextStyles={styles.buttonTextStyles}
+            onPress={()=>console.log("next Button is Pressed")}
           >
             Next
           </CommonButton>

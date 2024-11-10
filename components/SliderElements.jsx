@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AutoSlider from "./Marquee";
 import StockMarketJson from "../config/StockMarket.json";
 import { IndicatorDownIcon, IndicatorUpIcon } from "../assets/icons/icons";
+import { Marquee } from "@animatereactnative/marquee";
 
 export default function SliderElements() {
   const [data, setData] = useState([]);
@@ -13,7 +14,7 @@ export default function SliderElements() {
 
   return (
     <View style={styles.container}>
-      <AutoSlider>
+      <Marquee spacing={20} speed={0.4}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -38,7 +39,7 @@ export default function SliderElements() {
 
           ))}
         </ScrollView>
-      </AutoSlider>
+      </Marquee>
     </View>
   );
 }
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   },
   text: {
     // textAlign:"center",
-    fontSize: 14,
-    fontWeight:"500"
+    fontSize: 12,
+    fontWeight:"600"
   },
 });

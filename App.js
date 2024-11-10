@@ -41,6 +41,7 @@ const { width, height } = Dimensions.get("window");
 import BottomSheetElements from "./components/BottomSheetElements";
 import BannerComponent from "./components/BannerComponents";
 import SliderElements from "./components/SliderElements";
+import UploadDocuments from "./components/UploadDocuments";
 
 // import BannerComponent from "./components/BannerComponent";
 
@@ -463,10 +464,11 @@ export default function App() {
           <View style={{ marginTop: 20 }}></View>
            <SliderElements/> 
           <BannerComponent />
+          <UploadDocuments documentName="NID.png"/>
           <ServiceReqCard data={ServiceData1}/>
           <ServiceReqCard data={ServiceData2}/>
           <ServiceReqCard data={ServiceData3}/>
-
+           
           <View style={{ marginTop: 90 }}></View>
         </View>
       </ScrollView>
